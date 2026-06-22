@@ -4,6 +4,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.History
+import com.samuel.finances.model.BottomNavItem
 
 object BottomNavItems {
     val items = listOf(
