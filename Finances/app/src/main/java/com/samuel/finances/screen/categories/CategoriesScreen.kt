@@ -18,12 +18,5 @@ fun CategoriesScreen(
         contentAlignment = Alignment.Center
     ) {
         Text("Categories Screen")
-        Button(
-            onClick = {
-                navController.navigate("add_purchase")
-            }
-        ) {
-            Text("Go to Add Purchase")
-        }
     }
 }

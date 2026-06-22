@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import com.samuel.finances.navigation.FinanceNavGraph
+import com.samuel.finances.ui.MainApp
 import com.samuel.finances.ui.theme.FinancesTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,11 +21,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             FinancesTheme {
-                val navController = rememberNavController()
-
-                FinanceNavGraph(
-                    navController = navController
-                )
+                MainApp()
             }
         }
     }
