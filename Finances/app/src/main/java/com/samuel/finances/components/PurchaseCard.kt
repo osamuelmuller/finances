@@ -24,7 +24,9 @@ import java.util.Locale
 fun PurchaseCard(purchase: Purchase) {
 
     Card(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 5.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
     ) {
         val formattedValue = NumberFormat
