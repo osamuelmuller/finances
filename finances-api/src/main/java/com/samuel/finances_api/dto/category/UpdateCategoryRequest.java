@@ -1,9 +1,6 @@
 package com.samuel.finances_api.dto.category;
 
-import jakarta.validation.constraints.DecimalMin;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,6 +17,6 @@ public class UpdateCategoryRequest {
     private String name;
 
     @NotNull(message = "Initial budget is required")
-    @DecimalMin(value = "0.01", message = "Initial budget must be greater than zero")
+    @Positive(message = "Initial budget must be greater than zero")
     private BigDecimal initialBudget;
 }
