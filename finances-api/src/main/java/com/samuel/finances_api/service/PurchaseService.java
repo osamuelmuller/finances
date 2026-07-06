@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -124,6 +125,13 @@ public class PurchaseService {
     public void delete(Long id) {
         Purchase purchase = purchaseRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Purchase not found."));
+
+        Category category = categoryRepository.findById(purchase.getId())
+                .orElseThrow(() -> new RuntimeException("Category not found."));
+
+        // Here I'm refunding the deleted purchase value to the category so it doesn't make any errors in the budget.
+        category.setRemainingBudget(category.getRemainingBudget().add(purchase.getValue()));
+        categoryRepository.save(category);
 
         purchaseRepository.delete(purchase);
     }
