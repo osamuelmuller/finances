@@ -16,6 +16,8 @@ public class PaymentMethodService {
 
     private final PaymentMethodRepository paymentMethodRepository;
 
+    private final CurrentUserService currentUserService;
+
     public List<PaymentMethodResponse> getAll() {
         List<PaymentMethod> paymentMethods = paymentMethodRepository.findAll();
 
@@ -39,6 +41,7 @@ public class PaymentMethodService {
         PaymentMethod paymentMethod = new PaymentMethod();
 
         paymentMethod.setName(request.getName());
+        paymentMethod.setUser(currentUserService.getCurrentUser());
 
         PaymentMethod savedPaymentMethod = paymentMethodRepository.save(paymentMethod);
 

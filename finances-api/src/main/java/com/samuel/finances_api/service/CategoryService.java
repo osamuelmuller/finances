@@ -17,6 +17,8 @@ public class CategoryService {
 
     private final CategoryRepository categoryRepository;
 
+    private final CurrentUserService currentUserService;
+
     public List<CategoryResponse> getAll() {
         List<Category> categories = categoryRepository.findAll();
 
@@ -45,6 +47,7 @@ public class CategoryService {
         category.setName(request.getName());
         category.setInitialBudget(request.getInitialBudget());
         category.setRemainingBudget(request.getInitialBudget());
+        category.setUser(currentUserService.getCurrentUser());
 
         Category savedCategory = categoryRepository.save(category);
 

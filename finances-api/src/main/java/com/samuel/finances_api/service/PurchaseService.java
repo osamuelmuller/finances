@@ -28,6 +28,8 @@ public class PurchaseService {
 
     private final PaymentMethodRepository paymentMethodRepository;
 
+    private final CurrentUserService currentUserService;
+
     private PurchaseResponse toResponse(Purchase savedPurchase) {
         return PurchaseResponse.builder()
                 .id(savedPurchase.getId())
@@ -72,6 +74,7 @@ public class PurchaseService {
         }
         purchase.setCategory(category);
         purchase.setPaymentMethod(paymentMethod);
+        purchase.setUser(currentUserService.getCurrentUser());
 
         category.setRemainingBudget(category.getRemainingBudget().subtract(request.getValue()));
 
