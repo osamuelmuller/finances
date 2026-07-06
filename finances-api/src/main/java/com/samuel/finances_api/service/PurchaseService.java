@@ -41,9 +41,17 @@ public class PurchaseService {
                 .build();
     }
 
-    public List<PurchaseResponse> getAll() {
-        List<Purchase> purchases = purchaseRepository.findAll();
-        return purchases.stream().map(this::toResponse).toList();
+    public List<PurchaseResponse> getAll(Long categoryId, Long paymentMethodId, LocalDate startDate, LocalDate endDate) {
+        User user = currentUserService.getCurrentUser();
+
+        List<Purchase> purchases = purchaseRepository.findAllByUserId(user.getId());
+        return purchases.stream()
+                .filter(p -> categoryId == null || p.getCategory().getId().equals(categoryId))
+                .filter(p -> paymentMethodId == null || p.getPaymentMethod().getId().equals(paymentMethodId))
+                .filter(p -> startDate == null || !p.getPurchaseDate().isBefore(startDate))
+                .filter(p -> endDate == null || !p.getPurchaseDate().isAfter(endDate))
+                .map(this::toResponse)
+                .toList();
     }
 
     public PurchaseResponse getById(Long id) {

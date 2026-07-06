@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Controller
@@ -19,8 +20,18 @@ public class PurchaseController {
     private final PurchaseService purchaseService;
 
     @GetMapping
-    public List<PurchaseResponse> getAll() {
-        return purchaseService.getAll();
+    public List<PurchaseResponse> getAll(
+            @RequestParam(required = false) Long categoryId,
+            @RequestParam(required = false) Long paymentMethodId,
+            @RequestParam(required = false) LocalDate startDate,
+            @RequestParam(required = false) LocalDate endDate
+    ) {
+        return purchaseService.getAll(
+                categoryId,
+                paymentMethodId,
+                startDate,
+                endDate
+        ) ;
     }
 
     @GetMapping("/{id}")
