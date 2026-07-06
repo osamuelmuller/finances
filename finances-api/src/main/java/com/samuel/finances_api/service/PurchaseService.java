@@ -6,6 +6,7 @@ import com.samuel.finances_api.dto.purchase.UpdatePurchaseRequest;
 import com.samuel.finances_api.entity.Category;
 import com.samuel.finances_api.entity.PaymentMethod;
 import com.samuel.finances_api.entity.Purchase;
+import com.samuel.finances_api.entity.User;
 import com.samuel.finances_api.repository.CategoryRepository;
 import com.samuel.finances_api.repository.PaymentMethodRepository;
 import com.samuel.finances_api.repository.PurchaseRepository;
@@ -13,7 +14,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -53,15 +53,18 @@ public class PurchaseService {
     }
 
     public PurchaseResponse create(CreatePurchaseRequest request) {
-        Category category = categoryRepository.findById(request.getCategoryId())
+        User user = currentUserService.getCurrentUser(); // load demo user
+
+        Category category = categoryRepository.findByIdAndUserId(request.getCategoryId(), user.getId())
                 .orElseThrow(() -> new RuntimeException("Category not found."));
 
-        PaymentMethod paymentMethod = paymentMethodRepository.findById(request.getPaymentMethodId())
+        PaymentMethod paymentMethod = paymentMethodRepository.findByIdAndUserId(request.getPaymentMethodId(), user.getId())
                 .orElseThrow(() -> new RuntimeException("Payment method not found."));
 
         if(category.getRemainingBudget().compareTo(request.getValue()) < 0) {
             throw new RuntimeException("Insufficient budget in selected category.");
         }
+        category.setRemainingBudget(category.getRemainingBudget().subtract(request.getValue()));
 
         Purchase purchase = new Purchase();
 
@@ -74,9 +77,7 @@ public class PurchaseService {
         }
         purchase.setCategory(category);
         purchase.setPaymentMethod(paymentMethod);
-        purchase.setUser(currentUserService.getCurrentUser());
-
-        category.setRemainingBudget(category.getRemainingBudget().subtract(request.getValue()));
+        purchase.setUser(user);
 
         Purchase savedPurchase = purchaseRepository.save(purchase);
         return toResponse(savedPurchase);
@@ -101,26 +102,21 @@ public class PurchaseService {
         }
         purchase.setPaymentMethod(paymentMethod);
 
-        // I'm refunding the old category the purchase old value before changing the purchase to request new Category and new Value
-        // I'm not saving the category 'cause I'm relying on the JPA @Transaction annotation.
         Category oldCategory = purchase.getCategory();
-        oldCategory.setRemainingBudget(purchase.getCategory().getRemainingBudget().add(purchase.getValue()));
+        oldCategory.setRemainingBudget(purchase.getCategory().getRemainingBudget().add(purchase.getValue())); // I'm refunding the old category the purchase old value before changing the purchase to request new Category and new Value
+        // I'm not saving the category 'cause I'm relying on the JPA @Transaction annotation.
 
-        // Now I'm changing the purchase category
-        purchase.setCategory(category);
+        purchase.setCategory(category); // Now I'm changing the purchase category
 
-        // And comparing the purchase NEW VALUE to the remaining budget of the new category
+
         if(category.getRemainingBudget().compareTo(request.getValue()) < 0) {
             throw new RuntimeException("Insufficient budget in selected category.");
-        }
+        } // And comparing the purchase NEW VALUE to the remaining budget of the new category
 
-        // And then subtracting the request value from the remaining budget of the new category
-        category.setRemainingBudget(category.getRemainingBudget().subtract(request.getValue()));
+        category.setRemainingBudget(category.getRemainingBudget().subtract(request.getValue())); // And then subtracting the request value from the remaining budget of the new category
 
-        // And last step, I'm updating the purchase old value to the request value
-        purchase.setValue(request.getValue());
+        purchase.setValue(request.getValue()); // And last step, I'm updating the purchase old value to the request value
 
-        // And saving it
         Purchase updatedPurchase = purchaseRepository.save(purchase);
         return toResponse(updatedPurchase);
     }
