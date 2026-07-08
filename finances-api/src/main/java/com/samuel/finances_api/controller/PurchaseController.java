@@ -6,13 +6,12 @@ import com.samuel.finances_api.dto.purchase.UpdatePurchaseRequest;
 import com.samuel.finances_api.service.PurchaseService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("api/purchases")
 @RequiredArgsConstructor
 public class PurchaseController {

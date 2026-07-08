@@ -1,6 +1,7 @@
 package com.samuel.finances_api.dto.purchase;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -21,16 +22,16 @@ public class CreatePurchaseRequest {
     @Size(max = 50, message = "Purchase description cannot exceed 50 characters.")
     private String description;
 
-    @NotBlank(message = "Purchase value is required.")
+    @NotNull(message = "Purchase value is required.")
     @Positive(message = "Purchase value must be higher than zero.")
     private BigDecimal value;
 
     private LocalDate purchaseDate;
 
-    @NotBlank(message = "Category is required.")
+    @NotNull(message = "Category is required.")
     private Long categoryId;
 
-    @NotBlank(message = "Payment method is required.")
+    @NotNull(message = "Payment method is required.")
     private Long paymentMethodId;
 
 }
