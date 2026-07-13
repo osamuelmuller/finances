@@ -113,18 +113,24 @@ public class PurchaseService {
         }
         purchase.setPaymentMethod(paymentMethod);
 
+        // I'm going to calculate the current month expenses of the new category using budget service.
         BigDecimal currentExpenses = budgetService.getCurrentMonthExpenses(category);
 
+        // if the category stays the same, I'm subtracting the value of the purchase before I check the remaining budget
+        // It is necessary so I don't subtract twice the purchase value
         if(category.getId().equals(purchase.getCategory().getId())) {
             currentExpenses = currentExpenses.subtract(purchase.getValue());
         }
 
+        // and now I'm calculating the available budget in the new category, subtracting the sum of this month purchases from it's initial budget
         BigDecimal availableBudget = category.getInitialBudget().subtract(currentExpenses);
 
+        // if the available budget is insufficient, the update() method is going to throw an exception
         if(availableBudget.compareTo(request.getValue()) < 0) {
             throw new RuntimeException("Insufficient budget in selected category.");
         }
 
+        // only now I'm updating the category and value of the purchase
         purchase.setCategory(category);
         purchase.setValue(request.getValue());
 
