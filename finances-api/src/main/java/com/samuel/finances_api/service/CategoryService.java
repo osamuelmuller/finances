@@ -4,11 +4,14 @@ import com.samuel.finances_api.dto.category.CategoryResponse;
 import com.samuel.finances_api.dto.category.CreateCategoryRequest;
 import com.samuel.finances_api.dto.category.UpdateCategoryRequest;
 import com.samuel.finances_api.entity.Category;
+import com.samuel.finances_api.entity.User;
 import com.samuel.finances_api.repository.CategoryRepository;
+import com.samuel.finances_api.repository.PurchaseRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -19,34 +22,41 @@ public class CategoryService {
 
     private final CurrentUserService currentUserService;
 
+    private final BudgetService budgetService;
+
     public List<CategoryResponse> getAll() {
-        List<Category> categories = categoryRepository.findAll();
+        User currentUser = currentUserService.getCurrentUser();
+
+        List<Category> categories = categoryRepository.findAllByUserId(currentUser.getId());
 
         return categories.stream().map(category -> new CategoryResponse(
                         category.getId(),
                         category.getName(),
                         category.getInitialBudget(),
-                        category.getRemainingBudget()
+                        budgetService.calculateRemainingBudget(category)
         )).toList();
     }
 
     public CategoryResponse getById(Long id) {
-        Category category = categoryRepository.findById(id)
+        User currentUser = currentUserService.getCurrentUser();
+
+        Category category = categoryRepository.findByIdAndUserId(id, currentUser.getId())
                 .orElseThrow(() -> new RuntimeException("Category Not Found"));
 
         return new CategoryResponse(
                 category.getId(),
                 category.getName(),
                 category.getInitialBudget(),
-                category.getRemainingBudget()
+                budgetService.calculateRemainingBudget(category)
         );
     }
 
     public CategoryResponse create(CreateCategoryRequest request) {
+
         Category category = new Category();
+
         category.setName(request.getName());
         category.setInitialBudget(request.getInitialBudget());
-        category.setRemainingBudget(request.getInitialBudget());
         category.setUser(currentUserService.getCurrentUser());
 
         Category savedCategory = categoryRepository.save(category);
@@ -55,33 +65,40 @@ public class CategoryService {
                 savedCategory.getId(),
                 savedCategory.getName(),
                 savedCategory.getInitialBudget(),
-                savedCategory.getRemainingBudget()
+                budgetService.calculateRemainingBudget(savedCategory)
         );
     }
 
     public CategoryResponse update(Long id, UpdateCategoryRequest request) {
-        Category category = categoryRepository.findById(id)
+        User currentUser = currentUserService.getCurrentUser();
+
+        Category category = categoryRepository.findByIdAndUserId(id, currentUser.getId())
                 .orElseThrow(() -> new RuntimeException("Category not found."));
 
-        if (request.getInitialBudget().compareTo(category.getRemainingBudget()) < 0) {
-            throw new RuntimeException("Initial budget must be greater than or equal to the remaining budget");
-        } else {
-            category.setName(request.getName());
-            category.setInitialBudget(request.getInitialBudget());
-            categoryRepository.save(category);
+        BigDecimal expenses = budgetService.getCurrentMonthExpenses(category);
+
+        if (request.getInitialBudget().compareTo(expenses) < 0) {
+            throw new RuntimeException("Initial budget must be greater than or equal to this month's expenses.");
         }
+
+        category.setName(request.getName());
+        category.setInitialBudget(request.getInitialBudget());
+
+        categoryRepository.save(category);
 
 
         return new CategoryResponse(
                 category.getId(),
                 category.getName(),
                 category.getInitialBudget(),
-                category.getRemainingBudget()
+                budgetService.calculateRemainingBudget(category)
         );
     }
 
     public void delete(Long id) {
-        Category category = categoryRepository.findById(id)
+        User currentUser = currentUserService.getCurrentUser();
+
+        Category category = categoryRepository.findByIdAndUserId(id, currentUser.getId())
                 .orElseThrow(() -> new RuntimeException("Category not found"));
 
         categoryRepository.delete(category);

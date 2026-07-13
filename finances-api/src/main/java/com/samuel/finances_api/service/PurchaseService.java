@@ -14,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -29,6 +30,8 @@ public class PurchaseService {
     private final PaymentMethodRepository paymentMethodRepository;
 
     private final CurrentUserService currentUserService;
+
+    private final BudgetService budgetService;
 
     private PurchaseResponse toResponse(Purchase savedPurchase) {
         return PurchaseResponse.builder()
@@ -55,7 +58,9 @@ public class PurchaseService {
     }
 
     public PurchaseResponse getById(Long id) {
-        Purchase purchase = purchaseRepository.findById(id)
+        User currentUser = currentUserService.getCurrentUser();
+
+        Purchase purchase = purchaseRepository.findByIdAndUserId(id, currentUser.getId())
                 .orElseThrow(() -> new RuntimeException("Purchase not found."));
         return toResponse(purchase);
     }
@@ -69,10 +74,9 @@ public class PurchaseService {
         PaymentMethod paymentMethod = paymentMethodRepository.findByIdAndUserId(request.getPaymentMethodId(), user.getId())
                 .orElseThrow(() -> new RuntimeException("Payment method not found."));
 
-        if(category.getRemainingBudget().compareTo(request.getValue()) < 0) {
+        if(budgetService.calculateRemainingBudget(category).compareTo(request.getValue()) < 0) {
             throw new RuntimeException("Insufficient budget in selected category.");
         }
-        category.setRemainingBudget(category.getRemainingBudget().subtract(request.getValue()));
 
         Purchase purchase = new Purchase();
 
@@ -92,53 +96,47 @@ public class PurchaseService {
     }
 
     public PurchaseResponse update(Long id, UpdatePurchaseRequest request) {
+        User user = currentUserService.getCurrentUser();
 
-        Purchase purchase = purchaseRepository.findById(id)
+        Purchase purchase = purchaseRepository.findByIdAndUserId(id, user.getId())
                 .orElseThrow(() -> new RuntimeException("Purchase not found."));
 
-        Category category = categoryRepository.findById(request.getCategoryId())
+        Category category = categoryRepository.findByIdAndUserId(request.getCategoryId(), user.getId())
                 .orElseThrow(() -> new RuntimeException("Category not found."));
 
-        PaymentMethod paymentMethod = paymentMethodRepository.findById(request.getPaymentMethodId())
+        PaymentMethod paymentMethod = paymentMethodRepository.findByIdAndUserId(request.getPaymentMethodId(), user.getId())
                 .orElseThrow(() -> new RuntimeException("Payment method not found."));
 
         purchase.setDescription(request.getDescription());
-        if (request.getPurchaseDate() == null) {
-            purchase.setPurchaseDate(LocalDate.now());
-        } else {
+        if (request.getPurchaseDate() != null) {
             purchase.setPurchaseDate(request.getPurchaseDate());
         }
         purchase.setPaymentMethod(paymentMethod);
 
-        Category oldCategory = purchase.getCategory();
-        oldCategory.setRemainingBudget(purchase.getCategory().getRemainingBudget().add(purchase.getValue())); // I'm refunding the old category the purchase old value before changing the purchase to request new Category and new Value
-        // I'm not saving the category 'cause I'm relying on the JPA @Transaction annotation.
+        BigDecimal currentExpenses = budgetService.getCurrentMonthExpenses(category);
 
-        purchase.setCategory(category); // Now I'm changing the purchase category
+        if(category.getId().equals(purchase.getCategory().getId())) {
+            currentExpenses = currentExpenses.subtract(purchase.getValue());
+        }
 
+        BigDecimal availableBudget = category.getInitialBudget().subtract(currentExpenses);
 
-        if(category.getRemainingBudget().compareTo(request.getValue()) < 0) {
+        if(availableBudget.compareTo(request.getValue()) < 0) {
             throw new RuntimeException("Insufficient budget in selected category.");
-        } // And comparing the purchase NEW VALUE to the remaining budget of the new category
+        }
 
-        category.setRemainingBudget(category.getRemainingBudget().subtract(request.getValue())); // And then subtracting the request value from the remaining budget of the new category
-
-        purchase.setValue(request.getValue()); // And last step, I'm updating the purchase old value to the request value
+        purchase.setCategory(category);
+        purchase.setValue(request.getValue());
 
         Purchase updatedPurchase = purchaseRepository.save(purchase);
         return toResponse(updatedPurchase);
     }
 
     public void delete(Long id) {
-        Purchase purchase = purchaseRepository.findById(id)
+        User user = currentUserService.getCurrentUser();
+
+        Purchase purchase = purchaseRepository.findByIdAndUserId(id, user.getId())
                 .orElseThrow(() -> new RuntimeException("Purchase not found."));
-
-        Category category = categoryRepository.findById(purchase.getId())
-                .orElseThrow(() -> new RuntimeException("Category not found."));
-
-        // Here I'm refunding the deleted purchase value to the category so it doesn't make any errors in the budget.
-        category.setRemainingBudget(category.getRemainingBudget().add(purchase.getValue()));
-        categoryRepository.save(category);
 
         purchaseRepository.delete(purchase);
     }

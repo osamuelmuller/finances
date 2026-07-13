@@ -28,8 +28,6 @@ public class Category {
 
     private BigDecimal initialBudget;
 
-    private BigDecimal remainingBudget;
-
     @ManyToOne
     @JsonBackReference
     @JoinColumn(name = "user_id", nullable = false)
