@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Finance Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Finance Tracker</h1>
+</header>
+
+<main>
+
+    <section>
+        <h2>Categories</h2>
+
+        <div id="categories-container"></div>
+    </section>
+
+    <section>
+        <h2>Add Purchase</h2>
+
+        <form id="purchase-form">
+
+            <input
+                type="text"
+                id="description"
+                placeholder="Description"
+                required
+            >
+
+            <input
+                type="number"
+                id="value"
+                placeholder="Value"
+                step="0.01"
+                required
+            >
+
+            <input
+                type="date"
+                id="purchase-date"
+            >
+
+            <select id="category">
+                <option value="">Select category</option>
+            </select>
+
+            <select id="payment-method">
+                <option value="">Select payment method</option>
+            </select>
+
+            <button type="submit">
+                Save Purchase
+            </button>
+
+        </form>
+    </section>
+
+    <section>
+        <h2>Purchase History</h2>
+
+        <div id="purchases-container"></div>
+    </section>
+
+</main>
+
+<script src="app.js"></script>
+
+</body>
+</html>
