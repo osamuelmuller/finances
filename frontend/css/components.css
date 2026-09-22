@@ -1,0 +1,21 @@
+.logo {
+    display: grid;
+    grid-template-columns: 1fr 90%;
+    gap: var(--spacing-small);
+    font: 900 30px Arial, Helvetica, sans-serif;
+}
+
+.nav-link {
+    display: block;
+    margin: var(--spacing-medium) 0;
+    padding: var(--spacing-medium);
+
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+
+    color: var(--color-text-secondary);
+
+    font-size: small;
+    font-weight: 600;
+}
+

@@ -1,0 +1,17 @@
+body {
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    color: var(--color-primary);
+}
+
+h1,h2,h3 {
+    color: var(--color-text-primary);
+}
+
+p {
+    color: var(--color-text-secondary);
+}
