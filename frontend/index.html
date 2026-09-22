@@ -3,75 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Finance Tracker</title>
-
-    <link rel="stylesheet" href="style.css">
+    <title>Finances</title>
 </head>
-
 <body>
+    
+    <!-- 
+    ====================================
+    MAIN DIV
+    ====================================
+    -->
+    <div class="app">
 
-<header>
-    <h1>Finance Tracker</h1>
-</header>
+        <!-- 
+        ====================================
+        SIDEBAR MENU
+        ====================================
+        -->
+        <aside class="sidebar">
+            <div class="logo">
+                <!-- logo img element -->
+                <span class="logo-name">Finances</span>
+            </div>
 
-<main>
+            <nav class="sidebar-menu">
+                <!-- anchor elements -->
+            </nav>
 
-    <section>
-        <h2>Categories</h2>
+            <div class="sidebar-quote">
+                <!-- quote element -->
+            </div>
+        </aside>
 
-        <div id="categories-container"></div>
-    </section>
+        <!-- 
+        ====================================
+        MAIN CONTENT
+        ====================================
+        -->
+        <main class="main-content">
 
-    <section>
-        <h2>Add Purchase</h2>
+            <!-- 
+            ====================================
+            TOPBAR HTML
+            ====================================
+            -->
+            <section class="topbar">
+                <div class="topbar-spacer"></div>
 
-        <form id="purchase-form">
+                <div class="topbar-options">
+                    <button class="notifications-button">
+                        <!-- notification icon -->
+                    </button>
 
-            <input
-                type="text"
-                id="description"
-                placeholder="Description"
-                required
-            >
+                    <button class="user-options">
+                        <div class="profile-picture">
+                            <!-- img icon -->
+                        </div>
+                        
+                        <span class="profile-name">Samuel</span>
 
-            <input
-                type="number"
-                id="value"
-                placeholder="Value"
-                step="0.01"
-                required
-            >
+                        <span class="profile-dropdown">v</span>
+                    </button>
+                </div>
+            </section>
 
-            <input
-                type="date"
-                id="purchase-date"
-            >
+            <!-- 
+            ====================================
+            MAIN SCREEN
+            ====================================
+            -->
+            <section class="dashboard">
 
-            <select id="category">
-                <option value="">Select category</option>
-            </select>
+                <header class="page-header">
+                    <div class="page-title">
+                        <p>Olá, Samuel!</p>
+                        <p>Aqui está um resumo das suas finanças.</p>
+                    </div>
 
-            <select id="payment-method">
-                <option value="">Select payment method</option>
-            </select>
+                    <button class="month-selection">
+                        <span class="calendar-icon">calendar icon</span>
+                        <span>Setembro de 2026</span>
+                        <span class="arrow">v</span>
+                    </button>
+                </header>
 
-            <button type="submit">
-                Save Purchase
-            </button>
+                <!-- 
+                ====================================
+                CATEGORIES OVERVIEW
+                ====================================
+                -->
+                <section class="categories-overview"></section>
 
-        </form>
-    </section>
+                <!-- 
+                ====================================
+                DASHBOARD GRID
+                ====================================
+                -->    
+                <section class="dashboard-grid">
+    
+                    <section class="categories-card"></section>
 
-    <section>
-        <h2>Purchase History</h2>
+                    <section class="transactions-card"></section>
 
-        <div id="purchases-container"></div>
-    </section>
+                </section>
 
-</main>
+            </section>
+        </main>
 
-<script src="app.js"></script>
+    </div>
 
 </body>
 </html>
