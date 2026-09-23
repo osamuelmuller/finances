@@ -2,6 +2,8 @@
     display: grid;
     grid-template-columns: 1fr 4fr;
     min-height: 100vh;
+
+    padding-right: 40px;
 }
 
 /*
@@ -21,8 +23,11 @@ MAIN CONTENT
 */
 .topbar {
     display: grid;
-    grid-template-columns: 1fr 20%;
+
+    grid-template-columns: 1fr auto;
+
     min-height: 60px;
+
     align-items: center;
 }
 
@@ -41,7 +46,7 @@ HEADER
 
 .page-header {
     display: grid;
-    grid-template-columns: 1fr 20%;
+    grid-template-columns: 1fr auto;
     min-height: 130px;
     align-items: center;
 }
@@ -66,4 +71,10 @@ HEADER
 /*
 BORDERS
 */
-.sidebar
+.sidebar {
+    border-right: 1px solid var(--color-border);
+}
+
+.topbar {
+    border-bottom: 1px solid var(--color-border);
+}

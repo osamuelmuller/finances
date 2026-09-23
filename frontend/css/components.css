@@ -5,12 +5,15 @@
     font: 900 30px Arial, Helvetica, sans-serif;
 }
 
+/* SIDEBAR LINKS */
 .nav-link {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
     margin: var(--spacing-medium) 0;
     padding: var(--spacing-medium);
 
-    border: 1px solid var(--color-border);
     border-radius: 10px;
 
     color: var(--color-text-secondary);
@@ -19,3 +22,116 @@
     font-weight: 600;
 }
 
+.nav-link:hover {
+    background-color: var(--color-input);
+}
+
+.nav-link:active {
+    background-color: var(--color-primary);
+}
+
+/* TOPBAR CONFIG */
+.topbar-options {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* NOTIFICATION BUTTON */
+.notifications-button {
+    width: 50px;
+    height: 50px;
+
+    flex-shrink: 0;
+
+    background-color: transparent;
+    border: none;
+    border-radius: 40%;
+
+    cursor: pointer;
+}
+
+.notifications-button:hover {
+    background-color: var(--color-input);
+}
+
+.notifications-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* USER OPTIONS */
+.user-options {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 10px;
+    max-height: 50px;
+
+    align-items: center;
+
+    background-color: transparent;
+    color: var(--color-text-secondary);
+
+    border: none;
+    border-radius: 20px;
+
+    cursor: pointer;
+}
+
+.user-options:hover {
+    background-color: var(--color-input);
+}
+
+.profile-image {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+/* === DROPDOWN BUTTON === */
+.dropdown {
+    width: 25px;
+    height: 25px;
+}
+
+/* === CALENDAR OPTIONS === */
+.month-selection {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 15px;
+
+    border: none;
+    border-radius: 20px;
+
+    cursor: pointer;
+    user-select: none;
+}
+
+.month-selection:hover {
+    background-color: var(--color-input);
+}
+
+.month-selection input {
+    background: transparent;
+    color: var(--color-text-secondary);
+    text-transform: capitalize; 
+
+    border: none;
+    outline: none;
+
+    cursor: pointer;
+}
+
+.month-selection input[type="month"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+.calendar-icon {
+    width: 25px;
+    height: 25px;
+}

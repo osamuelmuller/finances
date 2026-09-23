@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finances</title>
 
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/variables.css">
-    <link rel="stylesheet" href="/css/global.css">
-    <link rel="stylesheet" href="/css/layout.css">
-    <link rel="stylesheet" href="/css/components.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
     
@@ -33,13 +33,34 @@
 
             <nav class="sidebar-menu">
                 <!-- anchor elements -->
-                <a href="" class="nav-link">Início</a>
-                <a href="" class="nav-link">Transações</a>
-                <a href="" class="nav-link">Categorias</a>
-                <a href="" class="nav-link">Formas de Pagamento</a>
-                <a href="" class="nav-link">Fontes de Renda</a>
-                <a href="" class="nav-link">Relatórios</a>
-                <a href="" class="nav-link">Configurações</a>
+                <a href="" class="nav-link">
+                    <img src="images/svg-icons/svg-home.svg" alt="inicio" width="20" height="20">
+                    Início
+                </a>
+                <a href="" class="nav-link">
+                    <img src="images/svg-icons/svg-transactions.svg" alt="transações" width="20" height="20">
+                    Transações
+                </a>
+                <a hreaf="" class="nav-link">
+                    <img src="images/svg-icons/svg-categories.svg" alt="categorias" width="20" height="20">
+                    Categorias
+                </a>
+                <a href="" class="nav-link">
+                    <img src="images/svg-icons/svg-payment-methods.svg" alt="formas de pagamento" width="20" height="20">
+                    Formas de Pagamento
+                </a>
+                <a href="" class="nav-link">
+                    <img src="images/svg-icons/svg-incomes.svg" alt="fontes de renda" width="20" height="20">
+                    Fontes de Renda
+                </a>
+                <a href="" class="nav-link">
+                    <img src="images/svg-icons/svg-reports.svg" alt="relatórios" width="20" height="20">
+                    Relatórios
+                </a>
+                <a href="" class="nav-link">
+                    <img src="images/svg-icons/svg-settings.svg" alt="configurações" width="20" height="20">
+                    Configurações
+                </a>
             </nav>
 
             <div class="sidebar-quote">
@@ -67,17 +88,18 @@
 
                 <div class="topbar-options">
                     <button class="notifications-button">
-                        <!-- notification icon -->
+                        <img class="notifications-icon" src="images/svg-icons/svg-notification.svg" alt="notifications button">
                     </button>
 
+                    <!-- === USER OPTIONS === -->
                     <button class="user-options">
                         <div class="profile-picture">
-                            <!-- img icon -->
+                            <img class="profile-image" src="images/user-pic.png" alt="user-profile-picture">
                         </div>
                         
                         <span class="profile-name">Samuel</span>
 
-                        <span class="profile-dropdown">v</span>
+                        <img class="dropdown" src="images/svg-icons/svg-arrow-dropdown.svg" alt="user options button">
                     </button>
                 </div>
             </section>
@@ -95,11 +117,12 @@
                         <p class="greeting-text">Aqui está um resumo das suas finanças.</p>
                     </div>
 
-                    <button class="month-selection">
-                        <span class="calendar-icon">calendar icon</span>
-                        <span>Setembro de 2026</span>
-                        <span class="arrow">v</span>
-                    </button>
+                <!-- === CALENDAR OPTIONS === -->
+                    <label class="month-selection">
+                        <img src="images/svg-icons/svg-calendar.svg" alt="calendar-icon" class="calendar-icon">
+                        <input type="month" class="month" name="month" id="month">
+                        <img class="dropdown" src="images/svg-icons/svg-arrow-dropdown.svg" alt="user options button">
+                    </label>
                 </header>
 
                 <!-- 
