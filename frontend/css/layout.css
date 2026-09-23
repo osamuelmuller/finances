@@ -55,6 +55,7 @@ HEADER
     padding-left: var(--spacing-xl);
 }
 
+/* === CATEGORIES OVERVIEW === */
 .categories-overview {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

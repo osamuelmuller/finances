@@ -31,4 +31,10 @@
     --spacing-large: 24px;
     --spacing-xl: 48px;
 
+    /* 
+    CATEGORY COLORS
+    */
+    --category-total-income: #2d4898;
+    --category-emergency-fund: #54008b;
+
 }
