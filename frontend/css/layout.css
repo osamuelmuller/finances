@@ -1,6 +1,6 @@
 .app {
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr auto;
     min-height: 100vh;
 
     padding-right: 40px;
@@ -10,6 +10,7 @@
 SIDEBAR
 */
 .sidebar {
+
     padding: var(--spacing-large);
     background-color: var(--color-surface);
 }
@@ -65,7 +66,7 @@ HEADER
 
 .dashboard-grid {
     display: grid;
-    grid-template-columns: 3fr 2fr;
+    grid-template-columns: 1fr 1fr;
     gap: var(--spacing-medium);
 }
 
