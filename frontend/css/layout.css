@@ -1,6 +1,6 @@
 .app {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 15% 1fr;
     min-height: 100vh;
 
     padding-right: 40px;
@@ -35,16 +35,6 @@ MAIN CONTENT
 /*
 HEADER
 */
-.greeting {
-    font: 700 30px Arial, Helvetica, sans-serif;
-    color: var(--color-text-primary);
-    padding-bottom: var(--spacing-small);
-}
-
-.username {
-    color: var(--color-primary);
-}
-
 .page-header {
     display: grid;
     grid-template-columns: 1fr auto;

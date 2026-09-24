@@ -15,6 +15,12 @@
     --color-border: #1b3545;
 
     --color-danger: #c40a47;
+    --color-moradia: rgb(41, 79, 203);
+    --color-transporte: rgb(255, 208, 0);
+    --color-lazer: rgb(204, 32, 204);
+    --color-saude: rgb(255, 105, 105);
+    --color-educacao: aquamarine;
+    --color-outros: gray;
 
     /*
     BORDER

@@ -101,6 +101,17 @@
     height: 25px;
 }
 
+/* === PAGE HEADER ELEMENTS === */
+.greeting {
+    font: 700 30px Arial, Helvetica, sans-serif;
+    color: var(--color-text-primary);
+    padding-bottom: var(--spacing-small);
+}
+
+.username {
+    color: var(--color-primary);
+}
+
 /* === CALENDAR OPTIONS === */
 .month-selection {
     display: flex;
@@ -229,6 +240,11 @@
 }
 
 /* TRANSACTION CARD ITEM*/
+.transactions-list {
+    border-collapse: collapse;
+    width: 100%;
+}
+
 .transaction-card {
     display: grid;
     grid-template-columns: auto 1fr 1fr 1fr;
@@ -238,6 +254,11 @@
     padding: 15px;
 
     border-top: 1px solid var(--color-border);
+}
+
+.transaction-icon-cell {
+    display: flex;
+    justify-content: center;
 }
 
 .transaction-icon {
@@ -283,6 +304,14 @@
     background-color: var(--color-surface);
 }
 
+.category-details {
+    display: block;
+}
+
+.category-progress-container {
+    display: block;
+}
+
 .dashboard-category-icon {
     width: 20px;
     height: 20px;
@@ -293,27 +322,27 @@
 }
 
 .moradia {
-    background-color: rgb(41, 79, 203);
+    background-color: var(--color-moradia);
 }
 
 .transporte {
-    background-color: rgb(255, 208, 0);
+    background-color: var(--color-transporte);
 }
 
 .lazer {
-    background-color: rgb(204, 32, 204);
+    background-color: var(--color-lazer);
 }
 
 .saude {
-    background-color: rgb(255, 105, 105);
+    background-color: var(--color-saude);
 }
 
 .educacao {
-    background-color: aquamarine;
+    background-color: var(--color-educacao);
 }
 
 .outros {
-    background-color: gray;
+    background-color: var(--color-outros);
 }
 
 .dashboard-category-info {

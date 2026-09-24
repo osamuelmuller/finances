@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,185 +12,144 @@
     <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
-    
-    <!-- 
-    ====================================
-    MAIN DIV
-    ====================================
-    -->
+
     <div class="app">
 
-        <!-- 
-        ====================================
-        SIDEBAR MENU
-        ====================================
-        -->
         <aside class="sidebar">
-            <div class="logo">
-                <img src="images/finances-logo.png" alt="finances-logo" width="45" height="45">
+            <header class="logo">
+                <img src="images/finances-logo.png" alt="Logotipo Finances" width="45" height="45">
                 <span class="logo-name">Finances</span>
-            </div>
+            </header>
 
             <nav class="sidebar-menu">
-                <!-- anchor elements -->
                 <a href="" class="nav-link">
-                    <img src="images/svg-icons/svg-home.svg" alt="inicio" width="20" height="20">
+                    <img src="images/svg-icons/svg-home.svg" alt="" width="20" height="20">
                     Início
                 </a>
-                <a href="" class="nav-link">
-                    <img src="images/svg-icons/svg-transactions.svg" alt="transações" width="20" height="20">
+                <a href="transactions.html" class="nav-link">
+                    <img src="images/svg-icons/svg-transactions.svg" alt="" width="20" height="20">
                     Transações
                 </a>
-                <a hreaf="" class="nav-link">
-                    <img src="images/svg-icons/svg-categories.svg" alt="categorias" width="20" height="20">
+                <a href="" class="nav-link">
+                    <img src="images/svg-icons/svg-categories.svg" alt="" width="20" height="20">
                     Categorias
                 </a>
                 <a href="" class="nav-link">
-                    <img src="images/svg-icons/svg-payment-methods.svg" alt="formas de pagamento" width="20" height="20">
+                    <img src="images/svg-icons/svg-payment-methods.svg" alt="" width="20" height="20">
                     Formas de Pagamento
                 </a>
                 <a href="" class="nav-link">
-                    <img src="images/svg-icons/svg-incomes.svg" alt="fontes de renda" width="20" height="20">
+                    <img src="images/svg-icons/svg-incomes.svg" alt="" width="20" height="20">
                     Fontes de Renda
                 </a>
                 <a href="" class="nav-link">
-                    <img src="images/svg-icons/svg-reports.svg" alt="relatórios" width="20" height="20">
+                    <img src="images/svg-icons/svg-reports.svg" alt="" width="20" height="20">
                     Relatórios
                 </a>
                 <a href="" class="nav-link">
-                    <img src="images/svg-icons/svg-settings.svg" alt="configurações" width="20" height="20">
+                    <img src="images/svg-icons/svg-settings.svg" alt="" width="20" height="20">
                     Configurações
                 </a>
             </nav>
 
-            <div class="sidebar-quote">
-                <!-- quote element -->
-                <span class="quote">
+            <footer class="sidebar-quote">
+                <blockquote class="quote">
                     <em>"Pequenas decisões financeiras hoje, grandes conquistas amanhã."</em>
-                </span>
-            </div>
+                </blockquote>
+            </footer>
         </aside>
 
-        <!-- 
-        ====================================
-        MAIN CONTENT
-        ====================================
-        -->
         <main class="main-content">
 
-            <!-- 
-            ====================================
-            TOPBAR HTML
-            ====================================
-            -->
-            <section class="topbar">
+            <header class="topbar">
                 <div class="topbar-spacer"></div>
 
                 <div class="topbar-options">
-                    <button class="notifications-button">
-                        <img class="notifications-icon" src="images/svg-icons/svg-notification.svg" alt="notifications button">
+                    <button class="notifications-button" aria-label="Notificações">
+                        <img class="notifications-icon" src="images/svg-icons/svg-notification.svg" alt="">
                     </button>
 
-                    <!-- === USER OPTIONS === -->
-                    <button class="user-options">
+                    <button class="user-options" aria-label="Opções do usuário">
                         <div class="profile-picture">
-                            <img class="profile-image" src="images/user-pic.png" alt="user-profile-picture">
+                            <img class="profile-image" src="images/user-pic.png" alt="Foto de perfil de Samuel">
                         </div>
-                        
+
                         <span class="profile-name">Samuel</span>
 
-                        <img class="dropdown" src="images/svg-icons/svg-arrow-dropdown.svg" alt="user options button">
+                        <img class="dropdown" src="images/svg-icons/svg-arrow-dropdown.svg" alt="">
                     </button>
                 </div>
-            </section>
+            </header>
 
-            <!-- 
-            ====================================
-            MAIN SCREEN
-            ====================================
-            -->
             <section class="dashboard">
 
                 <header class="page-header">
                     <div class="page-title">
-                        <p class="greeting">Olá, <span class="username">Samuel!</span></p>
+                        <h1 class="greeting">Olá, <span class="username">Samuel!</span></h1>
                         <p class="greeting-text">Aqui está um resumo das suas finanças.</p>
                     </div>
 
-                <!-- === CALENDAR OPTIONS === -->
                     <label class="month-selection">
-                        <img src="images/svg-icons/svg-calendar.svg" alt="calendar-icon" class="calendar-icon">
+                        <img src="images/svg-icons/svg-calendar.svg" alt="" class="calendar-icon">
                         <input type="month" class="month" name="month" id="month">
-                        <img class="dropdown" src="images/svg-icons/svg-arrow-dropdown.svg" alt="user options button">
+                        <img class="dropdown" src="images/svg-icons/svg-arrow-dropdown.svg" alt="">
                     </label>
                 </header>
 
-                <!-- 
-                ====================================
-                CATEGORIES OVERVIEW TESTING
-                ====================================
-                -->
                 <section class="categories-overview">
 
-                    <div class="category-card">
-                        <img class="category-icon total-balance" src="images/svg-icons/category-wallet.svg" alt="wallet-icon">
+                    <article class="category-card">
+                        <img class="category-icon total-balance" src="images/svg-icons/category-wallet.svg" alt="">
                         <div class="category-summary">
                             <p class="category-title">Saldo atual</p>
                             <p class="category-balance">R$ 2.845,32</p>
                             <p class="category-description">Seu saldo disponível</p>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="category-card">
-                        <img class="category-icon total-income" src="images/svg-icons/category-coin.svg" alt="coin-icon">
+                    <article class="category-card">
+                        <img class="category-icon total-income" src="images/svg-icons/category-coin.svg" alt="">
                         <div class="category-summary">
                             <p class="category-title">Total de receitas</p>
                             <p class="category-balance">R$ 5.320,00</p>
                             <p class="category-description">+12% em relação ao mês anterior</p>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="category-card">
-                        <img class="category-icon total-expenses" src="images/svg-icons/category-bill.svg" alt="bill-icon">
+                    <article class="category-card">
+                        <img class="category-icon total-expenses" src="images/svg-icons/category-bill.svg" alt="">
                         <div class="category-summary">
                             <p class="category-title">Total de despesas</p>
                             <p class="category-balance">R$ 2.474,68</p>
                             <p class="category-description">+8% em relação ao mês anterior</p>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="category-card">
-                        <img class="category-icon emergency-fund" src="images/svg-icons/category-pig.svg" alt="pig-icon">
+                    <article class="category-card">
+                        <img class="category-icon emergency-fund" src="images/svg-icons/category-pig.svg" alt="">
                         <div class="category-summary">
                             <p class="category-title">Reserva de emergência</p>
                             <p class="category-balance">R$ 370,00</p>
                             <p class="category-description">+10% em relação ao mês anterior</p>
                         </div>
-                    </div>
+                    </article>
 
                 </section>
 
-                <!-- 
-                ====================================
-                DASHBOARD GRID TESTING
-                ====================================
-                -->    
                 <section class="dashboard-grid">
-    
-                    <!-- CATEGORIES CARD -->
+
                     <section class="categories-dashboard">
-                        <div class="card">
-                            <div class="card-header">
-                                <p class="card-title">Categorias de gastos</p>
-                            </div>
+                        <article class="card">
+                            <header class="card-header">
+                                <h2 class="card-title">Categorias de gastos</h2>
+                            </header>
 
                             <ul class="dashboard-categories-list">
                                 <li>
                                     <div class="dashboard-category-card">
                                         <div class="dashboard-category-icon alimentação"></div>
 
-                                        <div class="dashboard-category-column-2">
-
+                                        <div class="category-details">
                                             <div class="dashboard-category-info">
                                                 <p class="dashboard-category-name">Alimentação</p>
                                                 <p class="dashboard-category-expenses">R$ 866,32</p>
@@ -199,17 +158,13 @@
                                             <p class="dashboard-category-available">
                                                 Disponível: R$ 1.333,68 / R$ 2.000,00
                                             </p>
-
                                         </div>
 
-                                        <div class="dashboard-category-column-3">
-
+                                        <div class="category-progress-container">
                                             <p class="dashboard-category-percentage">35%</p>
-
                                             <div class="dashboard-progress-bar">
                                                 <div class="dashboard-progress"></div>
                                             </div>
-
                                         </div>
                                     </div>
                                 </li>
@@ -217,8 +172,7 @@
                                     <div class="dashboard-category-card">
                                         <div class="dashboard-category-icon moradia"></div>
 
-                                        <div class="dashboard-category-column-2">
-
+                                        <div class="category-details">
                                             <div class="dashboard-category-info">
                                                 <p class="dashboard-category-name">Moradia</p>
                                                 <p class="dashboard-category-expenses">R$ 494,20</p>
@@ -227,17 +181,13 @@
                                             <p class="dashboard-category-available">
                                                 Disponível: R$ 1.505,80 / R$ 2.000,00
                                             </p>
-
                                         </div>
 
-                                        <div class="dashboard-category-column-3">
-
+                                        <div class="category-progress-container">
                                             <p class="dashboard-category-percentage">20%</p>
-
                                             <div class="dashboard-progress-bar">
                                                 <div class="dashboard-progress"></div>
                                             </div>
-
                                         </div>
                                     </div>
                                 </li>
@@ -245,8 +195,7 @@
                                     <div class="dashboard-category-card">
                                         <div class="dashboard-category-icon transporte"></div>
 
-                                        <div class="dashboard-category-column-2">
-
+                                        <div class="category-details">
                                             <div class="dashboard-category-info">
                                                 <p class="dashboard-category-name">Transporte</p>
                                                 <p class="dashboard-category-expenses">R$ 370,00</p>
@@ -255,17 +204,13 @@
                                             <p class="dashboard-category-available">
                                                 Disponível: R$ 830,00 / R$ 1.200,00
                                             </p>
-
                                         </div>
 
-                                        <div class="dashboard-category-column-3">
-
+                                        <div class="category-progress-container">
                                             <p class="dashboard-category-percentage">15%</p>
-
                                             <div class="dashboard-progress-bar">
                                                 <div class="dashboard-progress"></div>
                                             </div>
-
                                         </div>
                                     </div>
                                 </li>
@@ -273,8 +218,7 @@
                                     <div class="dashboard-category-card">
                                         <div class="dashboard-category-icon lazer"></div>
 
-                                        <div class="dashboard-category-column-2">
-
+                                        <div class="category-details">
                                             <div class="dashboard-category-info">
                                                 <p class="dashboard-category-name">Lazer</p>
                                                 <p class="dashboard-category-expenses">R$ 247,34</p>
@@ -283,17 +227,13 @@
                                             <p class="dashboard-category-available">
                                                 Disponível: R$ 752,66 / R$ 1.000,00
                                             </p>
-
                                         </div>
 
-                                        <div class="dashboard-category-column-3">
-
+                                        <div class="category-progress-container">
                                             <p class="dashboard-category-percentage">10%</p>
-
                                             <div class="dashboard-progress-bar">
                                                 <div class="dashboard-progress"></div>
                                             </div>
-
                                         </div>
                                     </div>
                                 </li>
@@ -301,8 +241,7 @@
                                     <div class="dashboard-category-card">
                                         <div class="dashboard-category-icon saude"></div>
 
-                                        <div class="dashboard-category-column-2">
-
+                                        <div class="category-details">
                                             <div class="dashboard-category-info">
                                                 <p class="dashboard-category-name">Saúde</p>
                                                 <p class="dashboard-category-expenses">R$ 197,00</p>
@@ -311,17 +250,13 @@
                                             <p class="dashboard-category-available">
                                                 Disponível: R$ 603,00 / R$ 800,00
                                             </p>
-
                                         </div>
 
-                                        <div class="dashboard-category-column-3">
-
+                                        <div class="category-progress-container">
                                             <p class="dashboard-category-percentage">8%</p>
-
                                             <div class="dashboard-progress-bar">
                                                 <div class="dashboard-progress"></div>
                                             </div>
-
                                         </div>
                                     </div>
                                 </li>
@@ -329,8 +264,7 @@
                                     <div class="dashboard-category-card">
                                         <div class="dashboard-category-icon educacao"></div>
 
-                                        <div class="dashboard-category-column-2">
-
+                                        <div class="category-details">
                                             <div class="dashboard-category-info">
                                                 <p class="dashboard-category-name">Educação</p>
                                                 <p class="dashboard-category-expenses">R$ 172,82</p>
@@ -339,17 +273,13 @@
                                             <p class="dashboard-category-available">
                                                 Disponível: R$ 327,18 / R$ 500,00
                                             </p>
-
                                         </div>
 
-                                        <div class="dashboard-category-column-3">
-
+                                        <div class="category-progress-container">
                                             <p class="dashboard-category-percentage">7%</p>
-
                                             <div class="dashboard-progress-bar">
                                                 <div class="dashboard-progress"></div>
                                             </div>
-
                                         </div>
                                     </div>
                                 </li>
@@ -357,8 +287,7 @@
                                     <div class="dashboard-category-card">
                                         <div class="dashboard-category-icon outros"></div>
 
-                                        <div class="dashboard-category-column-2">
-
+                                        <div class="category-details">
                                             <div class="dashboard-category-info">
                                                 <p class="dashboard-category-name">Outros</p>
                                                 <p class="dashboard-category-expenses">R$ 126,00</p>
@@ -367,168 +296,152 @@
                                             <p class="dashboard-category-available">
                                                 Disponível: R$ 374,00 / R$ 500,00
                                             </p>
-
                                         </div>
 
-                                        <div class="dashboard-category-column-3">
-
+                                        <div class="category-progress-container">
                                             <p class="dashboard-category-percentage">5%</p>
-
                                             <div class="dashboard-progress-bar">
                                                 <div class="dashboard-progress"></div>
                                             </div>
-
                                         </div>
                                     </div>
                                 </li>
                             </ul>
-                        </div>
+                        </article>
                     </section>
 
-                    <!-- TRANSACTIONS CARD -->
                     <section class="transactions-history">
-                        <div class="card">
-                            <div class="card-header transactions-header">
-                                <p class="card-title">Histórico de transações</p>
-                                <p class="see-more-button">Ver todos</p>
-                            </div>
+                        <article class="card">
+                            <header class="card-header transactions-header">
+                                <h2 class="card-title">Histórico de transações</h2>
+                                <a href="" class="see-more-button">Ver todos</a>
+                            </header>
 
-                            <ul class="transactions-list">
-                                <li>
-                                    <div class="transaction-card">
-                                        <img class="transaction-icon" src="images/svg-icons/category-coin.svg" alt="wallet">
-                                        
-                                        <div class="transaction-column">
+                            <table class="transactions-list">
+                                <thead>
+                                    <tr style="display: none;">
+                                        <th>Ícone</th>
+                                        <th>Nome e Categoria</th>
+                                        <th>Valor e Data</th>
+                                        <th>Método de Pagamento</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="transaction-card">
+                                        <td class="transaction-icon-cell">
+                                            <img class="transaction-icon" src="images/svg-icons/category-coin.svg" alt="">
+                                        </td>
+                                        <td class="transaction-column">
                                             <p class="transaction-name">Mercado</p>
                                             <p class="transaction-category">Alimentação</p>
-                                        </div>
-
-                                        <div class="transaction-column">
+                                        </td>
+                                        <td class="transaction-column">
                                             <p class="transaction-value">- R$ 186,45</p>
                                             <p class="transaction-date">15/09/2026</p>
-                                        </div>
-
-                                        <div class="transaction-column transaction-payment-method pix">
+                                        </td>
+                                        <td class="transaction-column transaction-payment-method pix">
                                             <span>Pix</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="transaction-card">
-                                        <img class="transaction-icon" src="images/svg-icons/category-coin.svg" alt="wallet">
-                                        
-                                        <div class="transaction-column">
+                                        </td>
+                                    </tr>
+                                    <tr class="transaction-card">
+                                        <td class="transaction-icon-cell">
+                                            <img class="transaction-icon" src="images/svg-icons/category-coin.svg" alt="">
+                                        </td>
+                                        <td class="transaction-column">
                                             <p class="transaction-name">Posto de Combustível</p>
                                             <p class="transaction-category">Transporte</p>
-                                        </div>
-
-                                        <div class="transaction-column">
+                                        </td>
+                                        <td class="transaction-column">
                                             <p class="transaction-value">- R$ 120,00</p>
                                             <p class="transaction-date">14/09/2026</p>
-                                        </div>
-
-                                        <div class="transaction-column transaction-payment-method pix">
+                                        </td>
+                                        <td class="transaction-column transaction-payment-method pix">
                                             <span>Cartão de Crédito</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="transaction-card">
-                                        <img class="transaction-icon" src="images/svg-icons/category-coin.svg" alt="wallet">
-                                        
-                                        <div class="transaction-column">
+                                        </td>
+                                    </tr>
+                                    <tr class="transaction-card">
+                                        <td class="transaction-icon-cell">
+                                            <img class="transaction-icon" src="images/svg-icons/category-coin.svg" alt="">
+                                        </td>
+                                        <td class="transaction-column">
                                             <p class="transaction-name">Restaurante</p>
                                             <p class="transaction-category">Lazer</p>
-                                        </div>
-
-                                        <div class="transaction-column">
+                                        </td>
+                                        <td class="transaction-column">
                                             <p class="transaction-value">- R$ 74,90</p>
                                             <p class="transaction-date">13/09/2026</p>
-                                        </div>
-
-                                        <div class="transaction-column transaction-payment-method pix">
+                                        </td>
+                                        <td class="transaction-column transaction-payment-method pix">
                                             <span>Débito</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="transaction-card">
-                                        <img class="transaction-icon" src="images/svg-icons/category-coin.svg" alt="wallet">
-                                        
-                                        <div class="transaction-column">
+                                        </td>
+                                    </tr>
+                                    <tr class="transaction-card">
+                                        <td class="transaction-icon-cell">
+                                            <img class="transaction-icon" src="images/svg-icons/category-coin.svg" alt="">
+                                        </td>
+                                        <td class="transaction-column">
                                             <p class="transaction-name">Salário</p>
                                             <p class="transaction-category">Renda</p>
-                                        </div>
-
-                                        <div class="transaction-column">
+                                        </td>
+                                        <td class="transaction-column">
                                             <p class="transaction-value">- R$ 3.500,00</p>
                                             <p class="transaction-date">10/09/2026</p>
-                                        </div>
-
-                                        <div class="transaction-column transaction-payment-method pix">
+                                        </td>
+                                        <td class="transaction-column transaction-payment-method pix">
                                             <span>Depósito</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="transaction-card">
-                                        <img class="transaction-icon" src="images/svg-icons/category-coin.svg" alt="wallet">
-                                        
-                                        <div class="transaction-column">
+                                        </td>
+                                    </tr>
+                                    <tr class="transaction-card">
+                                        <td class="transaction-icon-cell">
+                                            <img class="transaction-icon" src="images/svg-icons/category-coin.svg" alt="">
+                                        </td>
+                                        <td class="transaction-column">
                                             <p class="transaction-name">Shopping</p>
                                             <p class="transaction-category">Lazer</p>
-                                        </div>
-
-                                        <div class="transaction-column">
+                                        </td>
+                                        <td class="transaction-column">
                                             <p class="transaction-value">- R$ 299,00</p>
                                             <p class="transaction-date">09/09/2026</p>
-                                        </div>
-
-                                        <div class="transaction-column transaction-payment-method pix">
+                                        </td>
+                                        <td class="transaction-column transaction-payment-method pix">
                                             <span>Cartão de Crédito</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="transaction-card">
-                                        <img class="transaction-icon" src="images/svg-icons/category-coin.svg" alt="wallet">
-                                        
-                                        <div class="transaction-column">
+                                        </td>
+                                    </tr>
+                                    <tr class="transaction-card">
+                                        <td class="transaction-icon-cell">
+                                            <img class="transaction-icon" src="images/svg-icons/category-coin.svg" alt="">
+                                        </td>
+                                        <td class="transaction-column">
                                             <p class="transaction-name">Farmácia</p>
                                             <p class="transaction-category">Saúde</p>
-                                        </div>
-
-                                        <div class="transaction-column">
+                                        </td>
+                                        <td class="transaction-column">
                                             <p class="transaction-value">- R$ 89,90</p>
                                             <p class="transaction-date">08/09/2026</p>
-                                        </div>
-
-                                        <div class="transaction-column transaction-payment-method pix">
+                                        </td>
+                                        <td class="transaction-column transaction-payment-method pix">
                                             <span>Pix</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="transaction-card">
-                                        <img class="transaction-icon" src="images/svg-icons/category-coin.svg" alt="wallet">
-                                        
-                                        <div class="transaction-column">
+                                        </td>
+                                    </tr>
+                                    <tr class="transaction-card">
+                                        <td class="transaction-icon-cell">
+                                            <img class="transaction-icon" src="images/svg-icons/category-coin.svg" alt="">
+                                        </td>
+                                        <td class="transaction-column">
                                             <p class="transaction-name">Aluguel</p>
                                             <p class="transaction-category">Moradia</p>
-                                        </div>
-
-                                        <div class="transaction-column">
+                                        </td>
+                                        <td class="transaction-column">
                                             <p class="transaction-value">- R$ 1200,00</p>
                                             <p class="transaction-date">05/09/2026</p>
-                                        </div>
-
-                                        <div class="transaction-column transaction-payment-method pix">
+                                        </td>
+                                        <td class="transaction-column transaction-payment-method pix">
                                             <span>Boleto</span>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </article>
                     </section>
 
                 </section>
