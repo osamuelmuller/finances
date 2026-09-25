@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formas de Pagamento - Finances</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages/payment-methods.css">
+</head>
+<body>
+    
+    <div class="app">
+        <aside class="sidebar">
+            <header class="logo">
+                <img src="images/finances-logo.png" alt="Logotipo Finances" width="45" height="45">
+                <span class="logo-name">Finances</span>
+            </header>
+
+            <nav class="sidebar-menu">
+                <a href="index.html" class="nav-link">
+                    <img src="images/svg-icons/svg-home.svg" alt="" width="20" height="20">
+                    Início
+                </a>
+                <a href="transactions.html" class="nav-link">
+                    <img src="images/svg-icons/svg-transactions.svg" alt="" width="20" height="20">
+                    Transações
+                </a>
+                <a href="category.html" class="nav-link">
+                    <img src="images/svg-icons/svg-categories.svg" alt="" width="20" height="20">
+                    Categorias
+                </a>
+                <a href="payment-methods.html" class="nav-link">
+                    <img src="images/svg-icons/svg-payment-methods.svg" alt="" width="20" height="20">
+                    Formas de Pagamento
+                </a>
+                <a href="" class="nav-link">
+                    <img src="images/svg-icons/svg-incomes.svg" alt="" width="20" height="20">
+                    Fontes de Renda
+                </a>
+                <a href="" class="nav-link">
+                    <img src="images/svg-icons/svg-reports.svg" alt="" width="20" height="20">
+                    Relatórios
+                </a>
+                <a href="" class="nav-link">
+                    <img src="images/svg-icons/svg-settings.svg" alt="" width="20" height="20">
+                    Configurações
+                </a>
+            </nav>
+
+            <footer class="sidebar-quote">
+                <blockquote class="quote">
+                    <em>"Pequenas decisões financeiras hoje, grandes conquistas amanhã."</em>
+                </blockquote>
+            </footer>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <div class="topbar-spacer"></div>
+
+                <div class="topbar-options">
+                    <button class="notifications-button" aria-label="Notificações">
+                        <img class="notifications-icon" src="images/svg-icons/svg-notification.svg" alt="">
+                    </button>
+
+                    <button class="user-options" aria-label="Opções do usuário">
+                        <div class="profile-picture">
+                            <img class="profile-image" src="images/user-pic.png" alt="Foto de perfil de Samuel">
+                        </div>
+
+                        <span class="profile-name">Samuel</span>
+
+                        <img class="dropdown" src="images/svg-icons/svg-arrow-dropdown.svg" alt="">
+                    </button>
+                </div>
+            </header>
+
+            <section class="dashboard">
+
+                <header class="page-header">
+                    <div class="page-title">
+                        <h1 class="greeting">Formas de <span class="main-word">Pagamento</span></h1>
+                        <p>Gerencie suas formas de pagamento e facilite o seu controle financeiro.</p>
+                    </div>
+
+                    <button class="btn primary-btn margin-left-auto">+ Adicionar forma de pagamento</button>
+                    
+                </header>
+
+                <article class="card">
+                    <div class="filters-container payment-method-filter">
+                        <input type="search" class="filter-search" name="payment-method" id="payment-method" placeholder="Buscar forma de pagamento...">
+
+                        <div class="filter-group">
+                            <select class="filter-select">
+                                <option value="">Todos</option>
+                                <option value="pix">Pix</option>
+                                <option value="cartao">Cartão de Crédito</option>
+                                <option value="debito">Débito</option>
+                                <option value="boleto">Boleto</option>
+                                <option value="deposito">Depósito</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="payment-method-grid">
+                        <div class="payment-method-card">
+                            <div class="payment-method-icon carteira-digital"></div>
+                            <div class="payment-method-info">
+                                <p class="payment-method-name">Pix</p>
+                                <p class="payment-method-category">Carteira Digital</p>
+                            </div>
+                            <button class="btn edit-btn margin-left-auto">Editar</button>
+                        </div>
+
+                        <div class="payment-method-card">
+                            <div class="payment-method-icon debito"></div>
+                            <div class="payment-method-info">
+                                <p class="payment-method-name">Débito C6</p>
+                                <p class="payment-method-category">Cartão de Débito</p>
+                            </div>
+                            <button class="btn edit-btn margin-left-auto">Editar</button>
+                        </div>
+
+                        <div class="payment-method-card">
+                            <div class="payment-method-icon credito"></div>
+                            <div class="payment-method-info">
+                                <p class="payment-method-name">Crédito Sicredi</p>
+                                <p class="payment-method-category">Cartão de Crédito</p>
+                            </div>
+                            <button class="btn edit-btn margin-left-auto">Editar</button>
+                        </div>
+
+                        <div class="payment-method-card">
+                            <div class="payment-method-icon credito"></div>
+                            <div class="payment-method-info">
+                                <p class="payment-method-name">Crédito Nubank</p>
+                                <p class="payment-method-category">Cartão de Crédito</p>
+                            </div>
+                            <button class="btn edit-btn margin-left-auto">Editar</button>
+                        </div>
+
+                        <div class="payment-method-card">
+                            <div class="payment-method-icon credito"></div>
+                            <div class="payment-method-info">
+                                <p class="payment-method-name">Crédito Inter</p>
+                                <p class="payment-method-category">Cartão de Crédito</p>
+                            </div>
+                            <button class="btn edit-btn margin-left-auto">Editar</button>
+                        </div>
+
+                        <div class="payment-method-card">
+                            <div class="payment-method-icon outros"></div>
+                            <div class="payment-method-info">
+                                <p class="payment-method-name">Boleto</p>
+                                <p class="payment-method-category">Boleto</p>
+                            </div>
+                            <button class="btn edit-btn margin-left-auto">Editar</button>
+                        </div>
+
+                        <div class="payment-method-card">
+                            <div class="payment-method-icon outros"></div>
+                            <div class="payment-method-info">
+                                <p class="payment-method-name">Dinheiro</p>
+                                <p class="payment-method-category">Dinheiro</p>
+                            </div>
+                            <button class="btn edit-btn margin-left-auto">Editar</button>
+                        </div>
+
+                        <div class="payment-method-card">
+                            <div class="payment-method-icon outros"></div>
+                            <div class="payment-method-info">
+                                <p class="payment-method-name">Transferência bancária</p>
+                                <p class="payment-method-category">TED / DOC</p>
+                            </div>
+                            <button class="btn edit-btn margin-left-auto">Editar</button>
+                        </div>
+
+                        <div class="payment-method-card">
+                            <div class="payment-method-icon carteira-digital"></div>
+                            <div class="payment-method-info">
+                                <p class="payment-method-name">Google Pay</p>
+                                <p class="payment-method-category">Carteira Digital</p>
+                            </div>
+                            <button class="btn edit-btn margin-left-auto">Editar</button>
+                        </div>
+                    </div>
+                </article>
+
+        </main>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+.payment-method-filter {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 30px;
+    border: none;
+}
+
+/* PAYMENT METHOD CARD */
+.payment-method-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.payment-method-card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 20px;
+
+    width: 32%;
+    padding: 20px;
+    margin-bottom: var(--spacing-large);
+
+    border: 1px solid var(--color-border);
+    border-radius: 15px;
+
+    background-color: var(--color-input);
+}
+
+.payment-method-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-small);
+}
+
+.payment-method-name {
+    margin-top: var(--spacing-small);
+    font-weight: 600;
+    color: var(--color-text-secondary);
+}
+
+.payment-method-category {
+    font-size: small;
+}
+
+.payment-method-icon {
+    background-color: var(--color-primary);
+    width: 60px;
+    height: 60px;
+
+    border-radius: var(--radius-medium);
+}
+
+.edit-btn {
+    background-color: transparent;
+    color: var(--color-text-secondary);
+
+    font-weight: 500;
+    font-size: small;
+
+    border: 1px solid var(--color-border);
+
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+/* PAYMENT METHOD COLORS */
+.debito {
+    background-color: var(--color-educacao);
+}
+
+.credito {
+    background-color: var(--color-saude);
+}
+
+.outros {
+    background-color: var(--color-transporte);
+}
