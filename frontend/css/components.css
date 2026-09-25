@@ -95,118 +95,82 @@
     margin-right: 5px;
 }
 
-/* === DROPDOWN BUTTON === */
+/* DROPDOWN BUTTON */
 .dropdown {
     width: 25px;
     height: 25px;
 }
 
-/* === PAGE HEADER ELEMENTS === */
+/* SAUDAÇÃO DA PÁGINA */
 .greeting {
     font: 700 30px Arial, Helvetica, sans-serif;
     color: var(--color-text-primary);
     padding-bottom: var(--spacing-small);
 }
 
-.username {
+.main-word {
     color: var(--color-primary);
 }
 
-/* === CALENDAR OPTIONS === */
-.month-selection {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    padding: 15px;
-
+/* STANDARD BUTTON */
+.btn {
+    background-color: var(--color-text-secondary);
+    color: var(--color-background);
     border: none;
-    border-radius: 20px;
-
-    cursor: pointer;
-    user-select: none;
-}
-
-.month-selection:hover {
-    background-color: var(--color-input);
-}
-
-.month-selection input {
-    background: transparent;
-    color: var(--color-text-secondary);
-    text-transform: capitalize; 
-
-    border: none;
-    outline: none;
-
-    cursor: pointer;
-}
-
-.month-selection input[type="month"]::-webkit-calendar-picker-indicator {
-    display: none;
-}
-
-.calendar-icon {
-    width: 25px;
-    height: 25px;
-}
-
-/* === CATEGORY CARDS === */
-.category-card {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 20px;
-
-    padding: 20px;
-
-    border: 1px solid var(--color-border);
-    border-radius: 15px;
-
-    background-color: var(--color-surface);
-}
-
-.category-summary p {
-    margin-bottom: 15px;
-}
-
-.category-balance {
-    font-size: x-large;
+    padding: 8px 20px;
+    border-radius: var(--radius-small);
     font-weight: 600;
-
-    color: var(--color-text-primary);
+    cursor: pointer;
+    transition: opacity 0.2s;
 }
 
-.category-description {
-    font-size: small;
+.btn:hover {
+    opacity: 0.9;
 }
 
-.category-icon {
-    width: 50px;
-    height: 50px;
-
-    padding: 10px;
-
-    border-radius: 15px;
-}
-
-/* CUSTOM CATEGORY ICON COLORS */
-.total-balance {
+.primary-btn {
     background-color: var(--color-primary);
 }
 
-.total-income {
-    background-color: var(--category-total-income);
+.margin-left-auto {
+    margin-left: auto;
 }
 
-.total-expenses {
-    background-color: var(--color-danger);
+/* TRANSACTION FILTERS */
+.filters-container {
+    display: flex;
+    gap: var(--spacing-medium);
+    margin-bottom: var(--spacing-large);
+    background-color: var(--color-surface);
+    padding: var(--spacing-medium);
+    border-radius: var(--radius-medium);
+    border: 1px solid var(--color-border);
+    align-items: flex-end;
 }
 
-.emergency-fund {
-    background-color: var(--category-emergency-fund);
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-small);
 }
 
-/* DASHBOARD GRID */
+.filter-group label {
+    font-size: small;
+    color: var(--color-text-secondary);
+    font-weight: 600;
+}
+
+.filter-group select, .filter-group input {
+    background-color: var(--color-input);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border);
+    padding: 8px 12px;
+    border-radius: var(--radius-small);
+    outline: none;
+    cursor: pointer;
+}
+
+/* CATEGORIA DE GASTOS */
 .card {
 
     padding: 20px;
@@ -239,7 +203,7 @@
     cursor: pointer;
 }
 
-/* TRANSACTION CARD ITEM*/
+/* HISTÓRICO DE TRANSAÇÕES */
 .transactions-list {
     border-collapse: collapse;
     width: 100%;
@@ -291,7 +255,7 @@
     background-color: var(--color-text-secondary);
 }
 
-/* DASHBOARD CATEGORY CARD ITEM */
+/* CARDS DE CATEGORIAS DA SESSÃO 'CATEGORIAS DE GASTOS' */
 .dashboard-category-card {
     display: grid;
     grid-template-columns: 20px 1fr 40%;

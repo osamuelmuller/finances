@@ -1,0 +1,25 @@
+.full-width-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.full-width-table thead tr {
+    text-align: left;
+    color: var(--color-text-secondary);
+    border-bottom: 2px solid var(--color-border);
+}
+
+.full-width-table th {
+    padding: var(--spacing-medium);
+    font-size: small;
+    font-weight: 600;
+}
+
+.full-width-table tbody tr {
+    display: table-row;
+}
+
+.full-width-table td {
+    padding: var(--spacing-medium);
+    border-bottom: 1px solid var(--color-border);
+}
