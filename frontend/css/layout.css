@@ -36,10 +36,12 @@ MAIN CONTENT
 HEADER
 */
 .page-header {
-    display: grid;
-    grid-template-columns: 1fr auto;
+    display: flex;
+    flex-direction: row;
     min-height: 130px;
     align-items: center;
+    gap: var(--spacing-medium);
+
 }
 
 .dashboard {

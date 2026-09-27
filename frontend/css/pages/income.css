@@ -1,0 +1,50 @@
+.income-list {
+    margin-top: var(--spacing-medium);
+}
+
+.income-item {
+    margin-bottom: var(--spacing-small);
+
+    display: flex;
+    gap: 20px;
+}
+
+.income-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.main-column {
+    margin-right: auto;
+}
+
+.card-icon {
+    width: 55px;
+    height: 55px;
+
+    border-radius: 10px;
+
+    background-color: var(--color-primary);
+}
+
+.income-title {
+    color: var(--color-text-primary);
+
+    font-weight: 600;
+}
+
+.income-tag {
+    font-size: small;
+    text-align: center;
+
+    background-color: var(--color-primary);
+
+    border-radius: 15px;
+
+    padding: 5px;
+}
+
+.income-tag p {
+    color: var(--color-input);
+}
