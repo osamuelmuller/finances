@@ -1,0 +1,78 @@
+.settings-container {
+    padding-left: var(--spacing-xl);
+}
+
+.settings-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-medium);
+    margin-bottom: var(--spacing-xl);
+}
+
+.settings-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.settings-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-medium);
+}
+
+.settings-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-small);
+}
+
+.settings-group label {
+    font-size: small;
+    color: var(--color-text-secondary);
+    font-weight: 600;
+}
+
+.settings-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-medium);
+}
+
+.toggle-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.toggle-label {
+    color: var(--color-text-primary);
+    font-size: small;
+    font-weight: 600;
+}
+
+.toggle-description {
+    color: var(--color-text-secondary);
+    font-size: x-small;
+}
+
+.settings-checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--color-primary);
+}
+
+.settings-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-small);
+    margin-top: var(--spacing-medium);
+}
+
+.save-section {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-medium);
+    padding-bottom: var(--spacing-xl);
+}
