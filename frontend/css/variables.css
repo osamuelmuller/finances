@@ -1,46 +1,39 @@
 :root {
 
-    /*
-    COLORS
-    */
-    --color-background: #03121b;
-    --color-surface: #04161d;
-    --color-input: #051b27;
+    /* GLOBAL COLORS */
+    --color-background: #0B151D;
+    --color-surface: #0D1A25;
+    --color-input: #263A4C;
 
-    --color-text-primary: #f5f5f6;
-    --color-text-secondary: #8fb4cd;
+    --color-text-primary: #FCFCFC;
+    --color-text-secondary: #9ABACD;
 
-    --color-primary: #00e598;
+    --color-primary: #6BD28F;
+    --color-secondary: #71F3F4;
 
     --color-border: #1b3545;
 
+    /* ICON COLORS */
+    --color-safe: #56AB73;
     --color-danger: #c40a47;
-    --color-moradia: rgb(41, 79, 203);
-    --color-transporte: rgb(255, 208, 0);
-    --color-lazer: rgb(204, 32, 204);
-    --color-saude: rgb(255, 105, 105);
-    --color-educacao: aquamarine;
-    --color-outros: gray;
 
-    /*
-    BORDER
-    */
-    --radius-small: 6px;
+    --color-green: #5AB072;
+    --color-blue: #2F71D4;
+    --color-yellow: #F6AE3A;
+    --color-purple: #5A49A7;
+    --color-red: #D54B4B;
+    --color-cyan: #388185;
+    --color-gray: #546B81;
+
+    /* BORDER */
+    --radius-small: 5px;
     --radius-medium: 10px;
-    --radius-large: 16px;
+    --radius-large: 15px;
 
-    /*
-    SPACING
-    */
+    /* SPACING */
     --spacing-small: 8px;
-    --spacing-medium: 16px;
-    --spacing-large: 24px;
-    --spacing-xl: 48px;
-
-    /* 
-    CATEGORY COLORS
-    */
-    --category-total-income: #2d4898;
-    --category-emergency-fund: #54008b;
+    --spacing-medium: 12px;
+    --spacing-large: 20px;
+    --spacing-xl: 40px;
 
 }

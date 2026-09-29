@@ -1,0 +1,146 @@
+.summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-large);
+
+    margin: var(--spacing-xl) 0;
+}
+
+.summary-card {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 1 200px;
+
+    gap: var(--spacing-large);
+}
+
+.summary-infos {
+    display: flex;
+    flex-direction: column;
+
+    flex: 1 1 200px;
+    gap: var(--spacing-small);
+}
+
+.summary-title {
+    font-weight: 600;
+}
+
+.summary-balance {
+    font-size: x-large;
+    font-weight: 600;
+
+    color: var(--color-text-primary);
+}
+
+.summary-description {
+    font-size: small;
+}
+
+.dashboard {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: var(--spacing-large);
+}
+
+.dashboard > * {
+    flex-grow: 1;
+}
+
+.dashboard-column {
+    display: flex;
+    flex-direction: column;
+
+    gap: var(--spacing-large);
+}
+
+/* category summary */
+.list-item {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-large);
+
+    justify-content: space-between;
+    align-items: center;
+
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--spacing-large);
+
+    margin: var(--spacing-small) 0;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-medium);
+
+    margin: var(--spacing-large) 0;
+}
+
+.list-infos {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-small);
+
+    flex: 1 1 300px;
+}
+
+.category-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.category-header p {
+    color: var(--color-text-primary);
+}
+
+.spend-progress {
+    flex: 1 1 110px;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-small);
+}
+
+.spend-progress > * {
+    flex: 1 1 auto;
+}
+
+.spend-progress p {
+    color: var(--color-text-primary);
+}
+
+.progress-bar {
+    height: 14px;
+    max-height: 14px;
+
+    background-color: var(--color-input);
+
+    border-radius: 7px;
+}
+
+.progress-width {
+    height: 100%;
+    width: 35%;
+
+    background-color: var(--color-primary);
+
+    border-radius: 7px;
+}
+
+.new-purchase {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--spacing-large);
+
+    background-color: #8dd38d1e;
+}
+
+.transaction-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--spacing-medium);
+}
