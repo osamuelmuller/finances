@@ -2,8 +2,6 @@
     display: flex;
     flex-wrap: wrap;
     gap: var(--spacing-large);
-
-    margin: var(--spacing-xl) 0;
 }
 
 .summary-card {

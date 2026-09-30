@@ -5,6 +5,10 @@
 }
 
 .interface {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-large);
+
     padding: var(--spacing-large) var(--spacing-xl);
 }
 
@@ -15,5 +19,6 @@
     gap: var(--spacing-large);
 
     justify-content: space-between;
+    align-items: center;
 }
 

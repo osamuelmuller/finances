@@ -1,0 +1,34 @@
+.border-circle {
+    border-radius: 50% !important;
+}
+
+.balance-summary {
+    display: flex;
+    flex-wrap: wrap;
+    
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--spacing-xl);
+
+    background-color: var(--color-surface);
+}
+
+.balance-card {
+    display: flex;
+    gap: var(--spacing-small);
+    
+    flex: 1 1 170px;
+
+    align-items: center;
+}
+
+.balance-infos p {
+    font-size: small;
+}
+
+.balance-infos span {
+    font-size: large;
+    font-weight: 600;
+}
+
+/* write specific transactions.html table style here */
