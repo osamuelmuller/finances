@@ -42,11 +42,11 @@
 
 /* growth indicators */
 .safe {
-    color: var(--color-safe);
+    color: var(--color-safe) !important;
 }
 
 .danger {
-    color: var(--color-danger);
+    color: var(--color-danger) !important;
 }
 
 /* buttons */
@@ -67,4 +67,32 @@
 
 .primary--btn:active {
     opacity: 0.8;
+}
+
+/* tags */
+.tag {
+    background-color: var(--color-input);
+    padding: var(--spacing-small);
+    font-size: small;
+    font-weight: 500;
+
+    opacity: 0.8;
+
+    border-radius: var(--radius-large);
+}
+
+.tag--pix {
+    background-color: var(--color-green);
+}
+
+.tag--credito {
+    background-color: var(--color-blue);
+}
+
+.tag--debito {
+    background-color: var(--color-gray);
+}
+
+.tag--deposito {
+    background-color: var(--color-green);
 }
