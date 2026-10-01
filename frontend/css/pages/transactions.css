@@ -32,3 +32,11 @@
 }
 
 /* write specific transactions.html table style here */
+.date-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-small);
+    
+    justify-content: space-around;
+}
+
