@@ -11,454 +11,90 @@
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/components.css">   
     <link rel="stylesheet" href="css/pages/transactions.css">
+    <link rel="stylesheet" href="css/modal.css">
 </head>
 <body>
     <main>
-        <header class="topbar"></header>
+        <header class="topbar">
+            <div style="display: flex; align-items: center; justify-content: space-between; height: 100%; padding: 0 var(--spacing-xl);">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <img src="images/finances-logo.png" alt="Finances" width="32" height="32">
+                    <span style="font-weight: 700; color: var(--color-primary); font-size: 1.1rem;">Finances</span>
+                </div>
+                <nav style="display: flex; gap: var(--spacing-large);">
+                    <a href="index.html" style="color: var(--color-text-secondary); text-decoration: none; font-weight: 500;">Início</a>
+                    <a href="transactions.html" style="color: var(--color-primary); text-decoration: none; font-weight: 600;">Transações</a>
+                </nav>
+            </div>
+        </header>
 
         <div class="interface">
             <header class="page--header">
                 <div class="page--title">
                     <h1>Histórico de <span>Transações</span></h1>
-                    <p>Visualize e gerencia todas as suas transações financeiras.</p>
+                    <p>Visualize e gerencie todas as suas transações financeiras.</p>
                 </div>
 
-                <button class="btn primary--btn">+ Nova transação</button>
+                <button class="btn primary--btn" id="btn-new-transaction">+ Nova transação</button>
             </header>
 
             <section class="card filters--section">
                 <input type="search" class="input--search" name="search" id="search" placeholder="Buscar por descrição, categoria, etc...">
                 <input type="month" class="input--month" name="calendar" id="calendar">
                 <select class="select--input" name="category" id="category-selection">
-                    <option value="all-categories" class="select--option" selected disabled>Todas as categorias</option>
-                    <option value="alimentacao" class="select--option">Alimentação</option>
-                    <option value="transporte" class="select--option">Transporte</option>
-                    <option value="renda" class="select--option">Renda</option>
-                    <option value="lazer" class="select--option">Lazer</option>
-                    <option value="saude" class="select--option">Saúde</option>
-                    <option value="Moradia" class="select--option">Moradia</option>
+                    <option value="" selected>Todas as categorias</option>
                 </select>
                 <select class="select--input" name="payment-method" id="payment-method-selection">
-                    <option value="tranferencia" class="select--option">Transferência</option>
-                    <option value="pix" class="select--option">Pix</option>
-                    <option value="credito" class="select--option">Crédito</option>
-                    <option value="debito" class="select--option">Débito</option>
+                    <option value="" selected>Todas as formas de pagamento</option>
                 </select>
-                <button class="btn tertiary--btn" type="reset">Limpar filtros</button>
+                <button class="btn tertiary--btn" id="btn-clear-filters" type="button">Limpar filtros</button>
             </section>
 
             <article class="card balance-summary">
                 <div class="balance-card">
                     <div class="icon border-circle" style="background-color: var(--color-green);"></div>
                     <div class="balance-infos">
-                        <p>Total de entradas</p>
-                        <span>R$ 4.850,00</span>
+                        <p>Total de entradas (Orçamento)</p>
+                        <span id="total-period-income">R$ 0,00</span>
                     </div>
                 </div>
                 <div class="balance-card">
                     <div class="icon border-circle" style="background-color: var(--color-red);"></div>
                     <div class="balance-infos">
                         <p>Total de saídas</p>
-                        <span>R$ 2.474,68</span>
+                        <span id="total-period-expense" class="danger">R$ 0,00</span>
                     </div>
                 </div>
                 <div class="balance-card">
                     <div class="icon border-circle" style="background-color: var(--color-blue);"></div>
                     <div class="balance-infos">
                         <p>Saldo do período</p>
-                        <span>R$ 2.375,32</span>
+                        <span id="total-period-balance">R$ 0,00</span>
                     </div>
                 </div>
             </article>
 
-            <!-- create table here -->
             <table class="table">
-                <tr class="table--header">
-                    <th>Data</th>
-                    <th>Descrição</th>
-                    <th>Categoria</th>
-                    <th>Forma de pagamento</th>
-                    <th>Tipo</th>
-                    <th>Valor</th>
-                    <th>Ações</th>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="table--cell">
-                            <div class="category--icon" style="background-color: var(--color-gray);"></div>
-                            <div class="date-info">
-                                <p style="color: var(--color-text-primary);">16/09/2026</p>
-                                <p>14:32</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <div class="category--icon" style="background-color: var(--color-gray);"></div>
-                            <div class="date-info">
-                                <p style="color: var(--color-text-primary);">Mercado</p>
-                                <p>Supermercado</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <div class="category--icon" style="background-color: var(--color-yellow);"></div>
-                            <p style="color: var(--color-text-primary);">Alimentação</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <div class="category--icon" style="background-color: var(--color-gray);"></div>
-                            <p style="color: var(--color-text-primary);">Débito C6</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <span class="tag" style="background-color: var(--color-red);">Saída</span>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <p class="danger" style="flex-shrink: 0;">-R$186,45</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <button class="secondary--btn">...</button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="table--cell">
-                            <div class="category--icon" style="background-color: var(--color-gray);"></div>
-                            <div class="date-info">
-                                <p style="color: var(--color-text-primary);">14/09/2026</p>
-                                <p>10:15</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <div class="category--icon" style="background-color: var(--color-gray);"></div>
-                            <div class="date-info">
-                                <p style="color: var(--color-text-primary);">Posto de combustível</p>
-                                <p>Abastecimento</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <div class="category--icon" style="background-color: var(--color-blue);"></div>
-                            <p style="color: var(--color-text-primary);">Transporte</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <div class="category--icon" style="background-color: var(--color-gray);"></div>
-                            <p style="color: var(--color-text-primary);">Débito C6</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <span class="tag" style="background-color: var(--color-red);">Saída</span>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <p class="danger" style="flex-shrink: 0;">-R$120,00</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <button class="secondary--btn">...</button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="table--cell">
-                            <div class="category--icon" style="background-color: var(--color-gray);"></div>
-                            <div class="date-info">
-                                <p style="color: var(--color-text-primary);">13/09/2026</p>
-                                <p>19:42</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <div class="category--icon" style="background-color: var(--color-gray);"></div>
-                            <div class="date-info">
-                                <p style="color: var(--color-text-primary);">Mercado</p>
-                                <p>Supermercado</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <div class="category--icon" style="background-color: var(--color-yellow);"></div>
-                            <p style="color: var(--color-text-primary);">Alimentação</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <div class="category--icon" style="background-color: var(--color-gray);"></div>
-                            <p style="color: var(--color-text-primary);">Débito C6</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <span class="tag" style="background-color: var(--color-red);">Saída</span>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <p class="danger" style="flex-shrink: 0;">-R$186,45</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <button class="secondary--btn">...</button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="table--cell">
-                            <div class="category--icon" style="background-color: var(--color-gray);"></div>
-                            <div class="date-info">
-                                <p style="color: var(--color-text-primary);">16/09/2026</p>
-                                <p>14:32</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <div class="category--icon" style="background-color: var(--color-gray);"></div>
-                            <div class="date-info">
-                                <p style="color: var(--color-text-primary);">Mercado</p>
-                                <p>Supermercado</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <div class="category--icon" style="background-color: var(--color-yellow);"></div>
-                            <p style="color: var(--color-text-primary);">Alimentação</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <div class="category--icon" style="background-color: var(--color-gray);"></div>
-                            <p style="color: var(--color-text-primary);">Débito C6</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <span class="tag" style="background-color: var(--color-red);">Saída</span>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <p class="danger" style="flex-shrink: 0;">-R$186,45</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <button class="secondary--btn">...</button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="table--cell">
-                            <div class="category--icon" style="background-color: var(--color-gray);"></div>
-                            <div class="date-info">
-                                <p style="color: var(--color-text-primary);">16/09/2026</p>
-                                <p>14:32</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <div class="category--icon" style="background-color: var(--color-gray);"></div>
-                            <div class="date-info">
-                                <p style="color: var(--color-text-primary);">Mercado</p>
-                                <p>Supermercado</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <div class="category--icon" style="background-color: var(--color-yellow);"></div>
-                            <p style="color: var(--color-text-primary);">Alimentação</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <div class="category--icon" style="background-color: var(--color-gray);"></div>
-                            <p style="color: var(--color-text-primary);">Débito C6</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <span class="tag" style="background-color: var(--color-red);">Saída</span>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <p class="danger" style="flex-shrink: 0;">-R$186,45</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <button class="secondary--btn">...</button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="table--cell">
-                            <div class="category--icon" style="background-color: var(--color-gray);"></div>
-                            <div class="date-info">
-                                <p style="color: var(--color-text-primary);">16/09/2026</p>
-                                <p>14:32</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <div class="category--icon" style="background-color: var(--color-gray);"></div>
-                            <div class="date-info">
-                                <p style="color: var(--color-text-primary);">Mercado</p>
-                                <p>Supermercado</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <div class="category--icon" style="background-color: var(--color-yellow);"></div>
-                            <p style="color: var(--color-text-primary);">Alimentação</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <div class="category--icon" style="background-color: var(--color-gray);"></div>
-                            <p style="color: var(--color-text-primary);">Débito C6</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <span class="tag" style="background-color: var(--color-red);">Saída</span>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <p class="danger" style="flex-shrink: 0;">-R$186,45</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <button class="secondary--btn">...</button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="table--cell">
-                            <div class="category--icon" style="background-color: var(--color-gray);"></div>
-                            <div class="date-info">
-                                <p style="color: var(--color-text-primary);">16/09/2026</p>
-                                <p>14:32</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <div class="category--icon" style="background-color: var(--color-gray);"></div>
-                            <div class="date-info">
-                                <p style="color: var(--color-text-primary);">Mercado</p>
-                                <p>Supermercado</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <div class="category--icon" style="background-color: var(--color-yellow);"></div>
-                            <p style="color: var(--color-text-primary);">Alimentação</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <div class="category--icon" style="background-color: var(--color-gray);"></div>
-                            <p style="color: var(--color-text-primary);">Débito C6</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <span class="tag" style="background-color: var(--color-red);">Saída</span>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <p class="danger" style="flex-shrink: 0;">-R$186,45</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <button class="secondary--btn">...</button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="table--cell">
-                            <div class="category--icon" style="background-color: var(--color-gray);"></div>
-                            <div class="date-info">
-                                <p style="color: var(--color-text-primary);">16/09/2026</p>
-                                <p>14:32</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <div class="category--icon" style="background-color: var(--color-gray);"></div>
-                            <div class="date-info">
-                                <p style="color: var(--color-text-primary);">Mercado</p>
-                                <p>Supermercado</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <div class="category--icon" style="background-color: var(--color-yellow);"></div>
-                            <p style="color: var(--color-text-primary);">Alimentação</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <div class="category--icon" style="background-color: var(--color-gray);"></div>
-                            <p style="color: var(--color-text-primary);">Débito C6</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <span class="tag" style="background-color: var(--color-red);">Saída</span>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <p class="danger" style="flex-shrink: 0;">-R$186,45</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="table--cell">
-                            <button class="secondary--btn">...</button>
-                        </div>
-                    </td>
-                </tr>
+                <thead>
+                    <tr class="table--header">
+                        <th>Data</th>
+                        <th>Descrição</th>
+                        <th>Categoria</th>
+                        <th>Forma de pagamento</th>
+                        <th>Tipo</th>
+                        <th>Valor</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="transactions-table-body">
+                    <tr>
+                        <td colspan="7" class="state-loading">Carregando transações da API...</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </main>
+
+    <script type="module" src="js/transactions.js"></script>
 </body>
 </html>

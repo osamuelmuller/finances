@@ -11,10 +11,22 @@
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/components.css">   
     <link rel="stylesheet" href="css/pages/index.css"> 
+    <link rel="stylesheet" href="css/modal.css">
 </head>
 <body>
     <main>
-        <header class="topbar"></header>
+        <header class="topbar">
+            <div style="display: flex; align-items: center; justify-content: space-between; height: 100%; padding: 0 var(--spacing-xl);">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <img src="images/finances-logo.png" alt="Finances" width="32" height="32">
+                    <span style="font-weight: 700; color: var(--color-primary); font-size: 1.1rem;">Finances</span>
+                </div>
+                <nav style="display: flex; gap: var(--spacing-large);">
+                    <a href="index.html" style="color: var(--color-primary); text-decoration: none; font-weight: 600;">Início</a>
+                    <a href="transactions.html" style="color: var(--color-text-secondary); text-decoration: none; font-weight: 500;">Transações</a>
+                </nav>
+            </div>
+        </header>
 
         <div class="interface">
             <header class="page--header">
@@ -30,18 +42,18 @@
                 <article class="card summary-card">
                     <div class="icon" style="background-color: var(--color-green);"></div>
                     <div class="summary-infos">
-                        <p class="summary-title">Saldo atual</p>
-                        <p class="summary-balance">R$ 2.845,32</p>
-                        <p class="summary-description">Seu saldo disponível</p>
+                        <p class="summary-title">Saldo disponível</p>
+                        <p class="summary-balance" id="summary-current-balance">R$ 0,00</p>
+                        <p class="summary-description">Soma dos orçamentos restantes</p>
                     </div>
                 </article>
                 
                 <article class="card summary-card">
                     <div class="icon" style="background-color: var(--color-blue);"></div>
                     <div class="summary-infos">
-                        <p class="summary-title">Total de receitas</p>
-                        <p class="summary-balance">R$ 5.320,00</p>
-                        <p class="summary-description"><span class="safe">+ 12%</span> em relação ao mês anterior</p>
+                        <p class="summary-title">Orçamento planejado</p>
+                        <p class="summary-balance" id="summary-total-budget">R$ 0,00</p>
+                        <p class="summary-description">Teto mensal estipulado</p>
                     </div>
                 </article>
 
@@ -49,18 +61,17 @@
                     <div class="icon" style="background-color: var(--color-red);"></div>
                     <div class="summary-infos">
                         <p class="summary-title">Total de despesas</p>
-                        <p class="summary-balance">R$ 2.474,68</p>
-                        <p class="summary-description"><span class="danger">+ 8%</span> em relação ao mês anterior</p>
+                        <p class="summary-balance" id="summary-total-expenses">R$ 0,00</p>
+                        <p class="summary-description">Gastos realizados no período</p>
                     </div>
                 </article>
 
                 <article class="card summary-card">
                     <div class="icon" style="background-color: var(--color-purple);"></div>
                     <div class="summary-infos">
-                        <p class="summary-title">Total economizado</p>
-                        <p class="summary-balance">R$ 370,00
-                        </p>
-                        <p class="summary-description"><span class="safe">+ 50%</span> em reçação ao mês anterior</p>
+                        <p class="summary-title">Saldo economizado</p>
+                        <p class="summary-balance" id="summary-total-saved">R$ 0,00</p>
+                        <p class="summary-description">Orçamento não consumido</p>
                     </div>
                 </article>
             </section>
@@ -72,132 +83,13 @@
                             <p class="card--title">Mantenha o controle das suas finanças</p>
                             <p>Registre seus gastos, acompanhe seu progresso e alcance seus objetivos.</p>
                         </div>
-                        <button class="btn primary--btn">+ Adicionar compra</button>
+                        <button class="btn primary--btn" id="btn-new-purchase">+ Adicionar compra</button>
                     </article>
 
                     <article class="card category-summary">
                         <header class="card--title">Gastos por categoria</header>
-
-                        <ul class="list">
-                            <li class="list-item">
-                                <div class="category--icon" style="background-color: var(--color-green);"></div>
-                                <div class="list-infos">
-                                    <div class="category-header">
-                                        <p>Alimentação</p>
-                                        <p>R$ 856,32</p>
-                                    </div>
-
-                                    <p>Disponível: R$ 1.133,68 / R$ 2.000,00</p>
-                                </div>
-                                <div class="spend-progress">
-                                    <p>35%</p>
-                                    <div class="progress-bar">
-                                        <div class="progress-width"></div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-item">
-                                <div class="category--icon" style="background-color: var(--color-blue);"></div>
-                                <div class="list-infos">
-                                    <div class="category-header">
-                                        <p>Moradia</p>
-                                        <p>R$ 494,20</p>
-                                    </div>
-
-                                    <p>Disponível: R$ 1.505,80 / R$ 2.000,00</p>
-                                </div>
-                                <div class="spend-progress">
-                                    <p>35%</p>
-                                    <div class="progress-bar">
-                                        <div class="progress-width"></div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-item">
-                                <div class="category--icon" style="background-color: var(--color-yellow);"></div>
-                                <div class="list-infos">
-                                    <div class="category-header">
-                                        <p>Transporte</p>
-                                        <p>R$ 370,00</p>
-                                    </div>
-
-                                    <p>Disponível: R$ 830,00 / R$ 2.000,00</p>
-                                </div>
-                                <div class="spend-progress">
-                                    <p>35%</p>
-                                    <div class="progress-bar">
-                                        <div class="progress-width"></div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-item">
-                                <div class="category--icon" style="background-color: var(--color-purple);"></div>
-                                <div class="list-infos">
-                                    <div class="category-header">
-                                        <p>Lazer</p>
-                                        <p>R$ 752,66</p>
-                                    </div>
-
-                                    <p>Disponível: R$ 752,66 / R$ 1.000,00</p>
-                                </div>
-                                <div class="spend-progress">
-                                    <p>35%</p>
-                                    <div class="progress-bar">
-                                        <div class="progress-width"></div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-item">
-                                <div class="category--icon" style="background-color: var(--color-red);"></div>
-                                <div class="list-infos">
-                                    <div class="category-header">
-                                        <p>Saúde</p>
-                                        <p>R$ 197,00</p>
-                                    </div>
-
-                                    <p>Disponível: R$ 603,00 / R$ 800,00</p>
-                                </div>
-                                <div class="spend-progress">
-                                    <p>35%</p>
-                                    <div class="progress-bar">
-                                        <div class="progress-width"></div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-item">
-                                <div class="category--icon" style="background-color: var(--color-cyan);"></div>
-                                <div class="list-infos">
-                                    <div class="category-header">
-                                        <p>Educação</p>
-                                        <p>R$ 172,82</p>
-                                    </div>
-
-                                    <p>Disponível: R$ 327,18 / R$ 500,00</p>
-                                </div>
-                                <div class="spend-progress">
-                                    <p>35%</p>
-                                    <div class="progress-bar">
-                                        <div class="progress-width"></div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-item">
-                                <div class="category--icon" style="background-color: var(--color-gray);"></div>
-                                <div class="list-infos">
-                                    <div class="category-header">
-                                        <p>Outros</p>
-                                        <p>R$ 126,00</p>
-                                    </div>
-
-                                    <p>Disponível: R$ 374,00 / R$ 500,00</p>
-                                </div>
-                                <div class="spend-progress">
-                                    <p>35%</p>
-                                    <div class="progress-bar">
-                                        <div class="progress-width"></div>
-                                    </div>
-                                </div>
-                            </li>
+                        <ul class="list" id="categories-list">
+                            <li class="state-loading">Carregando categorias...</li>
                         </ul>
                     </article>
                 </div>
@@ -208,131 +100,14 @@
                         <a href="transactions.html">Ver todos</a>
                     </header>
                     
-                    <ul class="list">
-                        <li class="list-item">
-                            <div class="category--icon" style="background-color: var(--color-gray);"></div>
-                            <div class="list-infos">
-                                <div class="category-header">
-                                    <p>Mercado</p>
-                                    <p class="danger">- R$ 186,45</p>
-                                </div>
-
-                                <div class="category-description">
-                                    <p>Alimentação</p>
-                                    <p>15/09/2026</p>
-                                </div>
-                            </div>
-                            <div class="tag-column">
-                                <span class="tag tag--pix">Pix</span>
-                            </div>
-                        </li>
-                        <li class="list-item">
-                            <div class="category--icon" style="background-color: var(--color-gray);"></div>
-                            <div class="list-infos">
-                                <div class="category-header">
-                                    <p>Posto de combustível</p>
-                                    <p class="danger">- R$ 120,00</p>
-                                </div>
-
-                                <div class="category-description">
-                                    <p>Transporte</p>
-                                    <p>14/09/2026</p>
-                                </div>
-                            </div>
-                            <div class="tag-column">
-                                <span class="tag tag--credito">Cartão de crédito</span>
-                            </div>
-                        </li>
-                        <li class="list-item">
-                            <div class="category--icon" style="background-color: var(--color-gray);"></div>
-                            <div class="list-infos">
-                                <div class="category-header">
-                                    <p>Restaurante</p>
-                                    <p class="danger">- R$ 74,90</p>
-                                </div>
-
-                                <div class="category-description">
-                                    <p>Lazer</p>
-                                    <p>13/09/2026</p>
-                                </div>
-                            </div>
-                            <div class="tag-column">
-                                <span class="tag tag--debito">Débito</span>
-                            </div>
-                        </li>
-                        <li class="list-item">
-                            <div class="category--icon" style="background-color: var(--color-green);"></div>
-                            <div class="list-infos">
-                                <div class="category-header">
-                                    <p>Salário</p>
-                                    <p class="safe">+ R$ 3.500,00</p>
-                                </div>
-
-                                <div class="category-description">
-                                    <p>Renda</p>
-                                    <p>10/09/2026</p>
-                                </div>
-                            </div>
-                            <div class="tag-column">
-                                <span class="tag tag--deposito">Depósito</span>
-                            </div>
-                        </li>
-                        <li class="list-item">
-                            <div class="category--icon" style="background-color: var(--color-gray);"></div>
-                            <div class="list-infos">
-                                <div class="category-header">
-                                    <p>Shopping</p>
-                                    <p class="danger">- R$ 299,99</p>
-                                </div>
-
-                                <div class="category-description">
-                                    <p>Lazer</p>
-                                    <p>09/09/2026</p>
-                                </div>
-                            </div>
-                            <div class="tag-column">
-                                <span class="tag tag--credito">Cartão de crédito</span>
-                            </div>
-                        </li>
-                        <li class="list-item">
-                            <div class="category--icon" style="background-color: var(--color-gray);"></div>
-                            <div class="list-infos">
-                                <div class="category-header">
-                                    <p>Farmácia</p>
-                                    <p class="danger">- R$ 89,90</p>
-                                </div>
-
-                                <div class="category-description">
-                                    <p>Saúde</p>
-                                    <p>08/09/2026</p>
-                                </div>
-                            </div>
-                            <div class="tag-column">
-                                <span class="tag tag--pix">Pix</span>
-                            </div>
-                        </li>
-                        <li class="list-item">
-                            <div class="category--icon" style="background-color: var(--color-gray);"></div>
-                            <div class="list-infos">
-                                <div class="category-header">
-                                    <p>Aluguel</p>
-                                    <p class="danger">- R$ 1.200,00</p>
-                                </div>
-
-                                <div class="category-description">
-                                    <p>Moradia</p>
-                                    <p>05/09/2026</p>
-                                </div>
-                            </div>
-                            <div class="tag-column">
-                                <span class="tag tag--debito">Débito</span>
-                            </div>
-                            
-                        </li>
+                    <ul class="list" id="recent-purchases-list">
+                        <li class="state-loading">Carregando histórico...</li>
                     </ul>
                 </article>
             </section>
         </div>
     </main>
+
+    <script type="module" src="js/index.js"></script>
 </body>
 </html>

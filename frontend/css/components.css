@@ -133,6 +133,20 @@
     gap: var(--spacing-medium);
 }
 
+.input--month {
+    font-size: small;
+    font-weight: 600;
+
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
+    
+    padding: var(--spacing-small) var(--spacing-medium); 
+
+    border-radius: var(--radius-medium);
+    border: 1px solid var(--color-border);
+    outline: none;
+}
+
 .filters--section > input, select {
     flex: 1 1 auto;
 
