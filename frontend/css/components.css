@@ -1,0 +1,204 @@
+/* page header */
+.page--title {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-small);
+}
+
+.page--title span {
+    color: var(--color-primary);
+}
+
+/* standard card */
+.card {
+    padding: var(--spacing-large);
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-large);
+}
+
+.card--title {
+    font-weight: 600;
+
+    color: var(--color-text-primary);
+}
+
+/* icons */
+.icon {
+    flex-shrink: 0;
+
+    width: 50px;
+    height: 50px;
+
+    border-radius: var(--radius-medium);
+}
+
+.category--icon {
+    width: 30px;
+    height: 30px;
+
+    flex-shrink: 0 !important;
+
+    border-radius: 50%;
+}
+
+/* growth indicators */
+.safe {
+    color: var(--color-safe) !important;
+}
+
+.danger {
+    color: var(--color-danger) !important;
+}
+
+/* buttons */
+.primary--btn {
+    background-color: var(--color-primary);
+    
+    padding: var(--spacing-medium) var(--spacing-large);
+    border-radius: var(--radius-medium);
+
+    border: none;
+
+    font-weight: 600;
+}
+
+.secondary--btn {
+    background-color: transparent;
+    color: var(--color-text-primary);
+
+    padding: var(--spacing-small);
+
+    border: none;
+    border-radius: 50%;
+
+    cursor: pointer;
+}
+
+.tertiary--btn {
+    background-color: transparent;
+    color: var(--color-primary);
+
+    font-size: small;
+
+    padding: var(--spacing-medium) var(--spacing-large);
+
+    border: none;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.btn:active {
+    opacity: 0.8;
+}
+
+.secondary--btn:hover {
+    background-color: var(--color-surface);
+}
+
+/* tags */
+.tag {
+    background-color: var(--color-input);
+    padding: var(--spacing-small);
+    font-size: small;
+    font-weight: 500;
+
+    opacity: 0.8;
+
+    border-radius: var(--radius-large);
+}
+
+.tag--pix {
+    background-color: var(--color-green);
+}
+
+.tag--credito {
+    background-color: var(--color-blue);
+}
+
+.tag--debito {
+    background-color: var(--color-gray);
+}
+
+.tag--deposito {
+    background-color: var(--color-green);
+}
+
+/* filters section and inputs */
+.filters--section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-medium);
+}
+
+.input--month {
+    font-size: small;
+    font-weight: 600;
+
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
+    
+    padding: var(--spacing-small) var(--spacing-medium); 
+
+    border-radius: var(--radius-medium);
+    border: 1px solid var(--color-border);
+    outline: none;
+}
+
+.filters--section > input, select {
+    flex: 1 1 auto;
+
+    font-size: small;
+    font-weight: 600;
+
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
+    
+    padding: var(--spacing-small) var(--spacing-medium); 
+
+    border-radius: var(--radius-medium);
+    border: 1px solid var(--color-border);
+    outline: none;
+}
+
+.input--search::placeholder {
+    color: var(--color-text-secondary) !important;
+}
+
+.input--search {
+    color: var(--color-secondary) !important;
+}
+
+/* write general table style here */
+.table {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-large);
+}
+
+.table * {
+    font-size: small;
+}
+
+.table tr:hover {
+    background-color: var(--color-surface);
+}
+
+.table--header {
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.table--header th {
+    padding: var(--spacing-medium);
+    border: none;
+}
+
+.table--cell {
+    display: flex;
+    gap: var(--spacing-medium);
+    align-items: center;
+
+    padding: var(--spacing-medium) var(--spacing-large);
+}

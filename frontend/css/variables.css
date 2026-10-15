@@ -1,0 +1,39 @@
+:root {
+
+    /* GLOBAL COLORS */
+    --color-background: #0B151D;
+    --color-surface: #0D1A25;
+    --color-input: #263A4C;
+
+    --color-text-primary: #FCFCFC;
+    --color-text-secondary: #9ABACD;
+
+    --color-primary: #6BD28F;
+    --color-secondary: #71F3F4;
+
+    --color-border: #1b3545;
+
+    /* ICON COLORS */
+    --color-safe: #56AB73;
+    --color-danger: #c40a47;
+
+    --color-green: #5AB072;
+    --color-blue: #2F71D4;
+    --color-yellow: #F6AE3A;
+    --color-purple: #5A49A7;
+    --color-red: #D54B4B;
+    --color-cyan: #388185;
+    --color-gray: #546B81;
+
+    /* BORDER */
+    --radius-small: 5px;
+    --radius-medium: 10px;
+    --radius-large: 15px;
+
+    /* SPACING */
+    --spacing-small: 8px;
+    --spacing-medium: 12px;
+    --spacing-large: 20px;
+    --spacing-xl: 40px;
+
+}
