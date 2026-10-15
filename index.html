@@ -5,25 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Início - Finances</title>
 
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/variables.css">
-    <link rel="stylesheet" href="css/components.css">   
-    <link rel="stylesheet" href="css/pages/index.css"> 
-    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="frontend/css/reset.css">
+    <link rel="stylesheet" href="frontend/css/global.css">
+    <link rel="stylesheet" href="frontend/css/layout.css">
+    <link rel="stylesheet" href="frontend/css/variables.css">
+    <link rel="stylesheet" href="frontend/css/components.css">   
+    <link rel="stylesheet" href="frontend/css/pages/index.css"> 
+    <link rel="stylesheet" href="frontend/css/modal.css">
 </head>
 <body>
     <main>
         <header class="topbar">
             <div style="display: flex; align-items: center; justify-content: space-between; height: 100%; padding: 0 var(--spacing-xl);">
                 <div style="display: flex; align-items: center; gap: 12px;">
-                    <img src="images/finances-logo.png" alt="Finances" width="32" height="32">
+                    <img src="frontend/images/finances-logo.png" alt="Finances" width="32" height="32">
                     <span style="font-weight: 700; color: var(--color-primary); font-size: 1.1rem;">Finances</span>
                 </div>
                 <nav style="display: flex; gap: var(--spacing-large);">
                     <a href="index.html" style="color: var(--color-primary); text-decoration: none; font-weight: 600;">Início</a>
-                    <a href="transactions.html" style="color: var(--color-text-secondary); text-decoration: none; font-weight: 500;">Transações</a>
+                    <a href="frontend/transactions.html" style="color: var(--color-text-secondary); text-decoration: none; font-weight: 500;">Transações</a>
                 </nav>
             </div>
         </header>
@@ -97,7 +97,7 @@
                 <article class="card transaction-history">
                     <header class="transaction-header">
                         <p class="card--title">Histórico de Transações</p>
-                        <a href="transactions.html">Ver todos</a>
+                        <a href="frontend/transactions.html">Ver todos</a>
                     </header>
                     
                     <ul class="list" id="recent-purchases-list">
@@ -108,6 +108,6 @@
         </div>
     </main>
 
-    <script type="module" src="js/index.js"></script>
+    <script type="module" src="frontend/js/index.js"></script>
 </body>
 </html>
